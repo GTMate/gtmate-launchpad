@@ -1,11 +1,24 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import MetricsBar from "@/components/MetricsBar";
+import HeroSection from "@/components/HeroSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import ExpansionsSection from "@/components/ExpansionsSection";
+import GtmPartnersSection from "@/components/GtmPartnersSection";
+import IsThisForYouSection from "@/components/IsThisForYouSection";
+import MainFooter from "@/components/MainFooter";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <div className="pt-16">
+        <MetricsBar />
+        <HeroSection />
+        <HowItWorksSection />
+        <ExpansionsSection />
+        <GtmPartnersSection />
+        <IsThisForYouSection />
+        <MainFooter />
       </div>
     </div>
   );
