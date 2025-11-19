@@ -42,16 +42,16 @@ const Apply = () => {
             <CheckCircle2 className="h-16 w-16 text-foreground" />
           </div>
           <h1 className="text-4xl font-bold text-foreground">
-            ¡Gracias por tu interés!
+            Thank you for your interest!
           </h1>
           <p className="text-xl text-muted-foreground">
-            Hemos recibido tu solicitud. Nuestro equipo revisará tu información
-            y te contactaremos en las próximas 48 horas con una propuesta de GTM
-            partner específica para tu mercado objetivo.
+            We've received your application. Our team will review your information
+            and contact you within the next 48 hours with a specific GTM
+            partner proposal for your target market.
           </p>
           <div className="pt-4">
             <Button onClick={() => navigate("/")} size="lg">
-              Volver al inicio
+              Back to home
             </Button>
           </div>
         </div>
@@ -87,20 +87,20 @@ const Apply = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="firstName">Nombre</Label>
+                  <Label htmlFor="firstName">First Name</Label>
                   <Input
                     id="firstName"
-                    placeholder="Juan"
+                    placeholder="John"
                     required
                     value={formData.firstName}
                     onChange={(e) => handleChange("firstName", e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="lastName">Apellido</Label>
+                  <Label htmlFor="lastName">Last Name</Label>
                   <Input
                     id="lastName"
-                    placeholder="Pérez"
+                    placeholder="Smith"
                     required
                     value={formData.lastName}
                     onChange={(e) => handleChange("lastName", e.target.value)}
@@ -108,53 +108,54 @@ const Apply = () => {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="companyName">Company Name</Label>
-                <Input
-                  id="companyName"
-                  placeholder="Tu empresa"
-                  required
-                  value={formData.companyName}
-                  onChange={(e) => handleChange("companyName", e.target.value)}
-                />
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="companyName">Company Name</Label>
+                  <Input
+                    id="companyName"
+                    placeholder="Acme Inc."
+                    required
+                    value={formData.companyName}
+                    onChange={(e) => handleChange("companyName", e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="you@company.com"
+                    required
+                    value={formData.email}
+                    onChange={(e) => handleChange("email", e.target.value)}
+                  />
+                </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="tu@empresa.com"
-                  required
-                  value={formData.email}
-                  onChange={(e) => handleChange("email", e.target.value)}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="targetCountry">País objetivo</Label>
+                <Label htmlFor="targetCountry">Target Country</Label>
                 <Select
                   value={formData.targetCountry}
                   onValueChange={(value) => handleChange("targetCountry", value)}
                   required
                 >
                   <SelectTrigger id="targetCountry">
-                    <SelectValue placeholder="Selecciona un mercado" />
+                    <SelectValue placeholder="Select a market" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="latam">LATAM (Región completa)</SelectItem>
-                    <SelectItem value="europe">EUROPE (Región completa)</SelectItem>
-                    <SelectItem value="mexico">México</SelectItem>
-                    <SelectItem value="brazil">Brasil</SelectItem>
+                    <SelectItem value="latam">LATAM (Full Region)</SelectItem>
+                    <SelectItem value="europe">EUROPE (Full Region)</SelectItem>
+                    <SelectItem value="mexico">Mexico</SelectItem>
+                    <SelectItem value="brazil">Brazil</SelectItem>
                     <SelectItem value="argentina">Argentina</SelectItem>
                     <SelectItem value="chile">Chile</SelectItem>
                     <SelectItem value="colombia">Colombia</SelectItem>
-                    <SelectItem value="peru">Perú</SelectItem>
-                    <SelectItem value="spain">España</SelectItem>
-                    <SelectItem value="uk">Reino Unido</SelectItem>
-                    <SelectItem value="germany">Alemania</SelectItem>
-                    <SelectItem value="france">Francia</SelectItem>
-                    <SelectItem value="italy">Italia</SelectItem>
+                    <SelectItem value="peru">Peru</SelectItem>
+                    <SelectItem value="spain">Spain</SelectItem>
+                    <SelectItem value="uk">United Kingdom</SelectItem>
+                    <SelectItem value="germany">Germany</SelectItem>
+                    <SelectItem value="france">France</SelectItem>
+                    <SelectItem value="italy">Italy</SelectItem>
                     <SelectItem value="portugal">Portugal</SelectItem>
                   </SelectContent>
                 </Select>
@@ -204,7 +205,7 @@ const Apply = () => {
           <div className="lg:sticky lg:top-8 h-fit">
             <div className="bg-card border border-border rounded-lg p-8 space-y-6">
               <h2 className="text-2xl font-bold text-foreground">
-                Por qué elegir GTMate
+                Why choose GTMate
               </h2>
 
               <div className="space-y-4">
@@ -214,11 +215,11 @@ const Apply = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
-                      Partners pre-vetados
+                      Pre-vetted partners
                     </h3>
                     <p className="text-muted-foreground text-sm">
-                      Cada GTM partner ha sido verificado por experiencia en la
-                      industria, red local y historial de resultados.
+                      Every GTM partner has been verified for industry experience,
+                      local network, and track record of results.
                     </p>
                   </div>
                 </div>
@@ -229,11 +230,11 @@ const Apply = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
-                      Lanzamiento en 30 días
+                      30-day launch
                     </h3>
                     <p className="text-muted-foreground text-sm">
-                      No más meses de reclutamiento. Tu GTM partner está listo
-                      para empezar a generar pipeline inmediatamente.
+                      No more months of recruitment. Your GTM partner is ready
+                      to start generating pipeline immediately.
                     </p>
                   </div>
                 </div>
@@ -244,11 +245,11 @@ const Apply = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
-                      Modelo basado en comisión
+                      We train your broker
                     </h3>
                     <p className="text-muted-foreground text-sm">
-                      Sin salarios fijos ni equity. Solo pagas por resultados
-                      reales de ventas.
+                      Full onboarding on your product, sales methodology, and
+                      go-to-market strategy before they start selling.
                     </p>
                   </div>
                 </div>
@@ -259,11 +260,11 @@ const Apply = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
-                      Acompañamiento continuo
+                      Continuous support
                     </h3>
                     <p className="text-muted-foreground text-sm">
-                      No te dejamos solo después del match. Monitoreamos KPIs y
-                      ajustamos la estrategia según sea necesario.
+                      We don't leave you alone after the match. We monitor KPIs and
+                      adjust strategy as needed.
                     </p>
                   </div>
                 </div>
@@ -271,9 +272,9 @@ const Apply = () => {
 
               <div className="pt-4 border-t border-border">
                 <p className="text-sm text-muted-foreground italic">
-                  "GTMate nos permitió entrar a Brasil en 6 semanas con un partner
-                  que ya conocía a nuestros clientes ideales. Cerramos 3 deals en
-                  el primer trimestre."
+                  "GTMate allowed us to enter Brazil in 6 weeks with a partner
+                  who already knew our ideal customers. We closed 3 deals in
+                  the first quarter."
                 </p>
                 <p className="text-sm font-semibold text-foreground mt-2">
                   — VP Sales, SaaS Fintech
