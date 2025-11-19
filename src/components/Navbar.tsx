@@ -90,7 +90,7 @@ const Navbar = () => {
                 Contact
               </a>
               <Button asChild variant="default" size="sm" className="w-full">
-                <a href="/apply">Get a GTM partner</a>
+                <a href="/Apply">Get a GTM partner</a>
               </Button>
             </div>
           </div>
