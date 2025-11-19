@@ -1,37 +1,29 @@
 const MetricsBar = () => {
   const metrics = [
     {
-      number: "15+",
       label: "Target markets",
-      description: "Countries where we help B2B companies win new customers.",
+      number: "15+",
     },
     {
-      number: "75+",
       label: "GTM partners vetted",
-      description: "Sales leaders with real local experience in their markets.",
+      number: "75+",
     },
     {
-      number: "30 days",
       label: "Time to first deal",
-      description: "We optimize for speed, not just matching.",
+      number: "30 days",
     },
   ];
 
   return (
-    <section className="border-b border-border bg-secondary/30 py-8">
+    <section className="border-b border-border bg-secondary/30 py-3">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-6 md:gap-12">
           {metrics.map((metric, index) => (
-            <div key={index} className="text-center">
-              <div className="mb-2 text-4xl font-bold text-primary">
+            <div key={index} className="flex items-center gap-2">
+              <span className="text-sm text-muted-foreground">{metric.label}</span>
+              <span className="text-base font-semibold text-foreground md:text-lg">
                 {metric.number}
-              </div>
-              <div className="mb-1 text-sm font-semibold uppercase tracking-wide text-foreground">
-                {metric.label}
-              </div>
-              <div className="text-sm text-muted-foreground">
-                {metric.description}
-              </div>
+              </span>
             </div>
           ))}
         </div>

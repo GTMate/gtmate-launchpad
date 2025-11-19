@@ -8,7 +8,10 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:hero-image": "node scripts/generate-hero-image.js",
+    "generate:hero-image:unsplash": "node scripts/generate-hero-image-unsplash.js",
+    "generate:hero-image:replicate": "node scripts/generate-hero-image-replicate.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
