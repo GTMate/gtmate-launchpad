@@ -1,41 +1,46 @@
+import { useCallback, useMemo } from "react";
+
 const MainFooter = () => {
   const currentYear = new Date().getFullYear();
 
-  const footerSections = [
-    {
-      title: "For companies",
-      links: [
-        { label: "How it works", href: "#how-it-works" },
-        { label: "Success stories", href: "#expansions" },
-        { label: "Get a GTM partner", href: "/apply" },
-        { label: "Pricing", href: "/pricing" },
-      ],
-    },
-    {
-      title: "For GTM partners",
-      links: [
-        { label: "Become a partner", href: "#gtm-partners" },
-        { label: "Partner benefits", href: "/partner-benefits" },
-        { label: "Application process", href: "/apply" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { label: "Blog", href: "/blog" },
-        { label: "Case studies", href: "/case-studies" },
-        { label: "Contact us", href: "mailto:contact@gtmate.com" },
-        { label: "FAQ", href: "/faq" },
-      ],
-    },
-  ];
+  const footerSections = useMemo(
+    () => [
+      {
+        title: "For companies",
+        links: [
+          // { label: "How it works", href: "#how-it-works" },
+          // { label: "Success stories", href: "#expansions" },
+          { label: "Get a GTM partner", href: "/apply" },
+          { label: "Pricing", href: "/pricing" },
+        ],
+      },
+      {
+        title: "For GTM partners",
+        links: [
+          { label: "Become a partner", href: "#gtm-partners" },
+          { label: "Partner benefits", href: "/partner-benefits" },
+          { label: "Application process", href: "/apply" },
+        ],
+      },
+      {
+        title: "Resources",
+        links: [
+          { label: "Blog", href: "/blog" },
+          { label: "Case studies", href: "/case-studies" },
+          { label: "Contact us", href: "mailto:contact@gtmate.com" },
+          { label: "FAQ", href: "/faq" },
+        ],
+      },
+    ],
+    []
+  );
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-  };
+  }, []);
 
   return (
     <footer className="border-t border-border bg-secondary/20">
@@ -50,13 +55,13 @@ const MainFooter = () => {
           </div>
 
           {footerSections.map((section, index) => (
-            <div key={index}>
+            <div key={section.title}>
               <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-foreground">
                 {section.title}
               </h4>
               <ul className="space-y-2">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
+                {section.links.map((link) => (
+                  <li key={link.label}>
                     {link.href.startsWith("#") ? (
                       <button
                         onClick={() =>

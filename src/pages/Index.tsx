@@ -19,11 +19,11 @@ const Index = () => {
         <MetricsBar />
         <HeroSection />
         <LogosSection />
-        <HowItWorksSection />
-        <ExpansionsSection />
+        {/* <HowItWorksSection /> */}
+        {/* <ExpansionsSection /> */}
         <GtmPartnersSection />
         <TestimonialsSection />
-        <IsThisForYouSection />
+        {/* <IsThisForYouSection /> */}
         <FAQSection />
         <CTASection />
         <MainFooter />

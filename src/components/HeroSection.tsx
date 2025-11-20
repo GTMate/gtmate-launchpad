@@ -2,36 +2,38 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTypewriter } from "@/hooks/use-typewriter";
+import { useCallback, useMemo } from "react";
+
+const ROTATING_PHRASES = [
+  "without building a local team.",
+  "without hiring full-time sales reps.",
+  "without spending months recruiting.",
+  "without the overhead costs.",
+  "without the risk of bad hires.",
+] as const;
+
+const BENEFITS = [
+  "Curated GTM partners across LATAM and Europe.",
+  "Launch your go-to-market in weeks, not years.",
+  "Commission-based model instead of fixed headcount.",
+] as const;
 
 const HeroSection = () => {
-  const rotatingPhrases = [
-    "without building a local team.",
-    "without hiring full-time sales reps.",
-    "without spending months recruiting.",
-    "without the overhead costs.",
-    "without the risk of bad hires.",
-  ];
-
-  const typewriterText = useTypewriter(rotatingPhrases, 80, 40, 2000);
-  const scrollToSection = (id: string) => {
+  const typewriterText = useTypewriter(ROTATING_PHRASES, 80, 40, 2000);
+  
+  const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  const benefits = [
-    "Curated GTM partners across LATAM and Europe.",
-    "Launch your go-to-market in weeks, not years.",
-    "Commission-based model instead of fixed headcount.",
-  ];
+  }, []);
 
   return (
     <section className="container mx-auto px-4 py-12 md:py-20">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-4xl text-center">
         <h1 className="mb-6 text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">
           Open your next market with the right GTM partner —{" "}
-          <span className="inline-block min-w-[300px] text-left sm:min-w-[400px] md:min-w-[500px]">
+          <span className="inline-block min-w-[300px] sm:min-w-[400px] md:min-w-[500px]">
             {typewriterText}
             <span className="animate-pulse">|</span>
           </span>
@@ -42,22 +44,29 @@ const HeroSection = () => {
           years.
         </p>
 
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row">
-          <Button asChild size="lg" variant="default">
-            <Link to="/apply">Get a GTM partner</Link>
+        <div className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Button 
+            asChild 
+            size="lg" 
+            className="bg-[#874FFF] hover:bg-[#7043DD] text-white"
+          >
+            <Link to="/explore">Find a seller</Link>
           </Button>
           <Button
+            asChild
             size="lg"
             variant="outline"
-            onClick={() => scrollToSection("gtm-partners")}
+            className="bg-white hover:bg-gray-50"
           >
-            See GTM partner examples
+            <button onClick={() => scrollToSection("gtm-partners")}>
+              Become a GTM partner
+            </button>
           </Button>
         </div>
 
-        <div className="space-y-3">
-          {benefits.map((benefit, index) => (
-            <div key={index} className="flex items-start gap-3">
+        <div className="mx-auto max-w-2xl space-y-3">
+          {BENEFITS.map((benefit) => (
+            <div key={benefit} className="flex items-start justify-center gap-3">
               <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
               <span className="text-muted-foreground">{benefit}</span>
             </div>
