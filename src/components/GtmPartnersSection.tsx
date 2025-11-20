@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const GtmPartnersSection = () => {
   const partners = [
@@ -78,7 +79,7 @@ const GtmPartnersSection = () => {
               </CardContent>
               <CardFooter className="p-6 pt-0">
                 <Button asChild className="w-full">
-                  <a href="/apply">Request introduction</a>
+                  <Link to="/apply">Request introduction</Link>
                 </Button>
               </CardFooter>
             </Card>

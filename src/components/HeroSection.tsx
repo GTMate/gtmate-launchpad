@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useTypewriter } from "@/hooks/use-typewriter";
 
 const HeroSection = () => {
@@ -43,7 +44,7 @@ const HeroSection = () => {
 
         <div className="mb-8 flex flex-col gap-4 sm:flex-row">
           <Button asChild size="lg" variant="default">
-            <a href="/apply">Get a GTM partner</a>
+            <Link to="/apply">Get a GTM partner</Link>
           </Button>
           <Button
             size="lg"

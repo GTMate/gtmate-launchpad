@@ -12,6 +12,8 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import MainFooter from "@/components/MainFooter";
 
 const Apply = () => {
   const navigate = useNavigate();
@@ -36,42 +38,39 @@ const Apply = () => {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center px-4">
-        <div className="max-w-2xl w-full text-center space-y-6">
-          <div className="flex justify-center">
-            <CheckCircle2 className="h-16 w-16 text-foreground" />
-          </div>
-          <h1 className="text-4xl font-bold text-foreground">
-            Thank you for your interest!
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            We've received your application. Our team will review your information
-            and contact you within the next 48 hours with a specific GTM
-            partner proposal for your target market.
-          </p>
-          <div className="pt-4">
-            <Button onClick={() => navigate("/")} size="lg">
-              Back to home
-            </Button>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <div className="pt-16 flex items-center justify-center px-4 min-h-[calc(100vh-4rem)]">
+          <div className="max-w-2xl w-full text-center space-y-6">
+            <div className="flex justify-center">
+              <CheckCircle2 className="h-16 w-16 text-foreground" />
+            </div>
+            <h1 className="text-4xl font-bold text-foreground">
+              Thank you for your interest!
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              We've received your application. Our team will review your information
+              and contact you within the next 48 hours with a specific GTM
+              partner proposal for your target market.
+            </p>
+            <div className="pt-4">
+              <Button onClick={() => navigate("/")} size="lg">
+                Back to home
+              </Button>
+            </div>
           </div>
         </div>
+        <MainFooter />
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <button
-            onClick={() => navigate("/")}
-            className="text-foreground text-2xl font-bold hover:opacity-80 transition-opacity"
-          >
-            GTMate
-          </button>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-7xl mx-auto">
+      <Navbar />
+      <div className="pt-16">
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-7xl mx-auto">
           {/* Form Section */}
           <div>
             <div className="mb-8">
@@ -283,7 +282,9 @@ const Apply = () => {
             </div>
           </div>
         </div>
+        </div>
       </div>
+      <MainFooter />
     </div>
   );
 };

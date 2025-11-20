@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ExpansionsSection = () => {
   const expansions = [
@@ -74,10 +75,10 @@ const ExpansionsSection = () => {
             </CardContent>
             <CardFooter className="p-6 pt-0">
               <Button asChild variant="outline" className="w-full">
-                <a href="/apply">
+                <Link to="/apply">
                   I want something similar
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </Link>
               </Button>
             </CardFooter>
           </Card>

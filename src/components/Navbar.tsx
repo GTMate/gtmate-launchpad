@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -17,9 +18,9 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <a href="/" className="text-2xl font-bold text-foreground">
+          <Link to="/" className="text-2xl font-bold text-foreground">
             GTMate
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 md:flex">
@@ -48,7 +49,7 @@ const Navbar = () => {
               Contact
             </a>
             <Button asChild variant="default" size="sm">
-              <a href="/apply">Get a GTM partner</a>
+              <Link to="/apply">Get a GTM partner</Link>
             </Button>
           </div>
 

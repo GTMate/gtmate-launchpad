@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
@@ -14,10 +15,10 @@ const CTASection = () => {
             partner in under 2 weeks.
           </p>
           <Button asChild size="lg" variant="default" className="group">
-            <a href="/apply">
+            <Link to="/apply">
               Get a GTM partner
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
+            </Link>
           </Button>
           <p className="mt-6 text-sm text-muted-foreground">
             No upfront fees · Commission-based · Start in 30 days
