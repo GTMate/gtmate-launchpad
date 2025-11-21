@@ -15,7 +15,7 @@ const MOCK_PARTNERS = [
     name: "Carlos Rodriguez",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos",
     rate: 85,
-    market: "LATAM",
+    markets: ["LATAM", "Mexico", "Colombia"],
     hires: 12,
     verified: true,
   },
@@ -24,7 +24,7 @@ const MOCK_PARTNERS = [
     name: "Ana Silva",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ana",
     rate: 95,
-    market: "Brazil",
+    markets: ["Brazil"],
     hires: 8,
     verified: true,
   },
@@ -33,7 +33,7 @@ const MOCK_PARTNERS = [
     name: "Miguel Torres",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Miguel",
     rate: 75,
-    market: "Mexico",
+    markets: ["Mexico", "Central America"],
     hires: 15,
     verified: true,
   },
@@ -42,7 +42,7 @@ const MOCK_PARTNERS = [
     name: "Sofia Martinez",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sofia",
     rate: 90,
-    market: "Argentina",
+    markets: ["Argentina", "Uruguay", "Chile"],
     hires: 10,
     verified: true,
   },
@@ -51,7 +51,7 @@ const MOCK_PARTNERS = [
     name: "Luis Fernandez",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Luis",
     rate: 80,
-    market: "Chile",
+    markets: ["Chile", "Peru"],
     hires: 7,
     verified: true,
   },
@@ -60,7 +60,7 @@ const MOCK_PARTNERS = [
     name: "Isabella Costa",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Isabella",
     rate: 100,
-    market: "Europe",
+    markets: ["Spain", "Portugal", "Italy", "France"],
     hires: 20,
     verified: true,
   },
@@ -72,7 +72,7 @@ interface Partner {
   photo?: string;
   photo_url?: string;
   rate: number;
-  market: string;
+  markets: string[]; // Array de mercados
   hires: number;
   verified: boolean;
 }
@@ -94,7 +94,7 @@ const Explore = () => {
             name: p.name,
             photo_url: p.photo_url,
             rate: p.rate,
-            market: p.market,
+            markets: p.markets,
             hires: p.hires,
             verified: p.verified,
           }));
@@ -196,9 +196,13 @@ const Explore = () => {
                       )}
                     </div>
 
-                    {/* Market */}
-                    <div className="mb-4">
-                      <Badge variant="secondary">{partner.market}</Badge>
+                    {/* Markets - Show up to 5 */}
+                    <div className="mb-4 flex flex-wrap gap-1.5">
+                      {partner.markets.slice(0, 5).map((market) => (
+                        <Badge key={market} variant="secondary" className="text-xs">
+                          {market}
+                        </Badge>
+                      ))}
                     </div>
 
                     {/* Stats */}

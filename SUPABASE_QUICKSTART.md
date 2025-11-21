@@ -130,13 +130,13 @@ Una vez que funciona:
 Ve al SQL Editor y ejecuta:
 
 ```sql
-INSERT INTO gtm_partners (name, photo_url, email, rate, market, hires, verified, bio, skills, languages)
+INSERT INTO gtm_partners (name, photo_url, email, rate, markets, hires, verified, bio, skills, languages)
 VALUES (
   'Juan Perez',
   'https://api.dicebear.com/7.x/avataaars/svg?seed=Juan',
   'juan@example.com',
   85,
-  'Mexico',
+  ARRAY['Mexico', 'Central America'], -- Array de mercados (max 5)
   0,
   true,
   'Sales expert in Mexican market',

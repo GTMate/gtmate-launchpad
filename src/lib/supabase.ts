@@ -20,7 +20,7 @@ export interface Partner {
   photo_url: string | null;
   email: string | null;
   rate: number;
-  market: string;
+  markets: string[]; // Array de mercados (max 5)
   hires: number;
   verified: boolean;
   bio: string | null;
@@ -61,7 +61,7 @@ export const fetchPartnersByMarket = async (market: string): Promise<Partner[]> 
     .from('gtm_partners')
     .select('*')
     .eq('active', true)
-    .eq('market', market)
+    .contains('markets', [market]) // Buscar en el array de markets
     .order('hires', { ascending: false });
 
   if (error) {
