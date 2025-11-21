@@ -11,12 +11,15 @@ const CTASection = () => {
             Ready to open your next market?
           </h2>
           <p className="mb-8 text-lg text-muted-foreground md:text-xl">
-            Tell us where you want to go. We'll match you with the right GTM
-            partner in under 2 weeks.
+            Browse our vetted GTM partners and find the perfect match for your expansion goals.
           </p>
-          <Button asChild size="lg" variant="default" className="group">
-            <Link to="/apply">
-              Get a GTM partner
+          <Button 
+            asChild 
+            size="lg" 
+            className="group bg-[#874FFF] hover:bg-[#7043DD]"
+          >
+            <Link to="/explore">
+              Find a seller
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>

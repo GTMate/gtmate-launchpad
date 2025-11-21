@@ -26,6 +26,7 @@ export interface Partner {
   bio: string | null;
   skills: string[] | null;
   languages: string[] | null;
+  expertise: string[] | null; // Array de áreas de expertise
   active: boolean;
   available: boolean;
 }
@@ -109,4 +110,95 @@ export const incrementHires = async (partnerId: string): Promise<void> => {
     throw error;
   }
 };
+
+// ============================================
+// Contact Requests Functions
+// ============================================
+
+export interface ContactRequest {
+  id?: string;
+  first_name: string;
+  last_name: string;
+  company_name: string;
+  email: string;
+  target_region: string;
+  partner_id?: string;
+  partner_name?: string;
+  status?: string;
+  created_at?: string;
+  updated_at?: string;
+  notes?: string;
+}
+
+export async function createContactRequest(request: ContactRequest): Promise<{ success: boolean; error?: string; data?: any }> {
+  if (!supabase) {
+    console.error("Supabase client not initialized. Check VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.");
+    return { success: false, error: "Database not configured" };
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from('contact_requests')
+      .insert([{
+        first_name: request.first_name,
+        last_name: request.last_name,
+        company_name: request.company_name,
+        email: request.email,
+        target_region: request.target_region,
+        partner_id: request.partner_id,
+        partner_name: request.partner_name,
+        status: 'pending'
+      }])
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Error creating contact request:", error);
+      return { success: false, error: error.message };
+    }
+
+    console.log("Contact request created successfully:", data);
+    return { success: true, data };
+  } catch (err) {
+    console.error("Unexpected error creating contact request:", err);
+    return { success: false, error: "Unexpected error occurred" };
+  }
+}
+
+export async function fetchContactRequests(): Promise<ContactRequest[] | null> {
+  if (!supabase) {
+    console.warn("Supabase client not initialized.");
+    return null;
+  }
+  
+  const { data, error } = await supabase
+    .from('contact_requests')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error("Error fetching contact requests:", error);
+    return null;
+  }
+  return data as ContactRequest[];
+}
+
+export async function fetchContactRequestsByStatus(status: string): Promise<ContactRequest[] | null> {
+  if (!supabase) {
+    console.warn("Supabase client not initialized.");
+    return null;
+  }
+  
+  const { data, error } = await supabase
+    .from('contact_requests')
+    .select('*')
+    .eq('status', status)
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error(`Error fetching contact requests with status ${status}:`, error);
+    return null;
+  }
+  return data as ContactRequest[];
+}
 
