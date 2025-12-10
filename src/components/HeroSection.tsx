@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTypewriter } from "@/hooks/use-typewriter";
 
@@ -9,12 +8,6 @@ const ROTATING_PHRASES = [
   "without spending months recruiting.",
   "without the overhead costs.",
   "without the risk of bad hires.",
-] as const;
-
-const BENEFITS = [
-  "Curated GTM partners across LATAM and Europe.",
-  "Launch your go-to-market in weeks, not years.",
-  "Commission-based model instead of fixed headcount.",
 ] as const;
 
 const HeroSection = () => {
@@ -36,7 +29,7 @@ const HeroSection = () => {
           years.
         </p>
 
-        <div className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button 
             asChild 
             size="lg" 
@@ -54,15 +47,6 @@ const HeroSection = () => {
               Become a GTM partner
             </Link>
           </Button>
-        </div>
-
-        <div className="mx-auto max-w-2xl space-y-3">
-          {BENEFITS.map((benefit) => (
-            <div key={benefit} className="flex items-start justify-center gap-3">
-              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-              <span className="text-muted-foreground">{benefit}</span>
-            </div>
-          ))}
         </div>
       </div>
     </section>
