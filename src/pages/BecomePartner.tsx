@@ -5,37 +5,52 @@ import MainFooter from "@/components/MainFooter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { CheckCircle2, ArrowLeft } from "lucide-react";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { CheckCircle2, ArrowLeft, ChevronDown, X } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
-const LATAM_COUNTRIES = [
-  { value: "latam-region", label: "LATAM (Full Region)" },
-  { value: "mexico", label: "Mexico" },
-  { value: "brazil", label: "Brazil" },
-  { value: "argentina", label: "Argentina" },
-  { value: "chile", label: "Chile" },
-  { value: "colombia", label: "Colombia" },
-  { value: "peru", label: "Peru" },
-  { value: "ecuador", label: "Ecuador" },
-  { value: "uruguay", label: "Uruguay" },
-  { value: "paraguay", label: "Paraguay" },
-  { value: "bolivia", label: "Bolivia" },
-  { value: "venezuela", label: "Venezuela" },
-  { value: "panama", label: "Panama" },
-  { value: "costa-rica", label: "Costa Rica" },
-  { value: "guatemala", label: "Guatemala" },
-  { value: "honduras", label: "Honduras" },
-  { value: "el-salvador", label: "El Salvador" },
-  { value: "nicaragua", label: "Nicaragua" },
-  { value: "dominican-republic", label: "Dominican Republic" },
-  { value: "puerto-rico", label: "Puerto Rico" },
+const REGION_GROUPS = [
+  {
+    title: "LATAM",
+    regions: [
+      { value: "latam", label: "LATAM (Full Region)" },
+      { value: "argentina", label: "Argentina" },
+      { value: "brazil", label: "Brazil" },
+      { value: "chile", label: "Chile" },
+      { value: "colombia", label: "Colombia" },
+      { value: "costa-rica", label: "Costa Rica" },
+      { value: "ecuador", label: "Ecuador" },
+      { value: "mexico", label: "Mexico" },
+      { value: "panama", label: "Panama" },
+      { value: "peru", label: "Peru" },
+      { value: "uruguay", label: "Uruguay" },
+    ],
+  },
+  {
+    title: "Europe",
+    regions: [
+      { value: "europe", label: "Europe (Full Region)" },
+      { value: "france", label: "France" },
+      { value: "germany", label: "Germany" },
+      { value: "ireland", label: "Ireland" },
+      { value: "italy", label: "Italy" },
+      { value: "netherlands", label: "Netherlands" },
+      { value: "portugal", label: "Portugal" },
+      { value: "spain", label: "Spain" },
+      { value: "sweden", label: "Sweden" },
+      { value: "switzerland", label: "Switzerland" },
+      { value: "uk", label: "United Kingdom" },
+    ],
+  },
 ];
+
+// Flat list for lookups
+const ALL_REGIONS = REGION_GROUPS.flatMap((group) => group.regions);
 
 const BecomePartner = () => {
   const navigate = useNavigate();
@@ -46,7 +61,7 @@ const BecomePartner = () => {
     email: "",
     phone: "",
     linkedin: "",
-    country: "",
+    countries: [] as string[],
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -61,7 +76,7 @@ const BecomePartner = () => {
       email: formData.email,
       phone: formData.phone || null,
       linkedin: formData.linkedin,
-      country: formData.country,
+      country: formData.countries.join(", "),
       experience: null,
       industry: null,
     };
@@ -79,6 +94,76 @@ const BecomePartner = () => {
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const toggleRegion = (region: string) => {
+    setFormData((prev) => {
+      const isSelected = prev.countries.includes(region);
+      
+      // Check if this is a "full region" option
+      if (region === "latam" || region === "europe") {
+        const group = REGION_GROUPS.find((g) => 
+          g.regions.some((r) => r.value === region)
+        );
+        if (group) {
+          const allRegionValues = group.regions.map((r) => r.value);
+          
+          if (isSelected) {
+            return {
+              ...prev,
+              countries: prev.countries.filter((r) => !allRegionValues.includes(r)),
+            };
+          } else {
+            const newRegions = [...prev.countries];
+            allRegionValues.forEach((r) => {
+              if (!newRegions.includes(r)) {
+                newRegions.push(r);
+              }
+            });
+            return { ...prev, countries: newRegions };
+          }
+        }
+      }
+      
+      // Regular country toggle
+      if (isSelected) {
+        const group = REGION_GROUPS.find((g) => 
+          g.regions.some((r) => r.value === region)
+        );
+        const fullRegionValue = group?.regions[0].value;
+        
+        return {
+          ...prev,
+          countries: prev.countries
+            .filter((r) => r !== region)
+            .filter((r) => r !== fullRegionValue),
+        };
+      } else {
+        const newRegions = [...prev.countries, region];
+        
+        const group = REGION_GROUPS.find((g) => 
+          g.regions.some((r) => r.value === region)
+        );
+        
+        if (group) {
+          const fullRegionValue = group.regions[0].value;
+          const countryValues = group.regions.slice(1).map((r) => r.value);
+          const allCountriesSelected = countryValues.every((c) => newRegions.includes(c));
+          
+          if (allCountriesSelected && !newRegions.includes(fullRegionValue)) {
+            newRegions.push(fullRegionValue);
+          }
+        }
+        
+        return { ...prev, countries: newRegions };
+      }
+    });
+  };
+
+  const removeRegion = (region: string) => {
+    if (formData.countries.includes(region)) {
+      toggleRegion(region);
+    }
   };
 
   if (submitted) {
@@ -201,24 +286,66 @@ const BecomePartner = () => {
                 />
               </div>
 
-              {/* Country/Region */}
+              {/* Country/Region - Multi Select */}
               <div className="space-y-2">
-                <Label htmlFor="country">Country/Region where you operate *</Label>
-                <Select
-                  value={formData.country}
-                  onValueChange={(value) => handleChange("country", value)}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select your country or region" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {LATAM_COUNTRIES.map((country) => (
-                      <SelectItem key={country.value} value={country.value}>
-                        {country.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <Label>Country/Region where you operate *</Label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      className="w-full justify-between font-normal"
+                    >
+                      {formData.countries.length > 0
+                        ? `${formData.countries.length} region(s) selected`
+                        : "Select your regions"}
+                      <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-full p-0" align="start">
+                    <div className="max-h-72 overflow-y-auto p-2">
+                      {REGION_GROUPS.map((group, groupIndex) => (
+                        <div key={group.title}>
+                          {groupIndex > 0 && <div className="my-2 border-t border-border" />}
+                          <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                            {group.title}
+                          </div>
+                          {group.regions.map((region) => (
+                            <div
+                              key={region.value}
+                              className="flex items-center space-x-2 p-2 hover:bg-muted rounded cursor-pointer"
+                              onClick={() => toggleRegion(region.value)}
+                            >
+                              <Checkbox
+                                checked={formData.countries.includes(region.value)}
+                                onCheckedChange={() => toggleRegion(region.value)}
+                              />
+                              <span className="text-sm">{region.label}</span>
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </PopoverContent>
+                </Popover>
+                {formData.countries.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {formData.countries.map((region) => {
+                      const regionData = ALL_REGIONS.find((r) => r.value === region);
+                      return (
+                        <Badge
+                          key={region}
+                          variant="secondary"
+                          className="cursor-pointer gap-1"
+                          onClick={() => removeRegion(region)}
+                        >
+                          {regionData?.label || region}
+                          <X className="h-3 w-3" />
+                        </Badge>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
 
               {/* Submit Button */}
