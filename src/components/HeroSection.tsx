@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTypewriter } from "@/hooks/use-typewriter";
-import { useCallback, useMemo } from "react";
 
 const ROTATING_PHRASES = [
   "without building a local team.",
@@ -20,13 +19,6 @@ const BENEFITS = [
 
 const HeroSection = () => {
   const typewriterText = useTypewriter(ROTATING_PHRASES, 80, 40, 2000);
-  
-  const scrollToSection = useCallback((id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }, []);
 
   return (
     <section className="container mx-auto px-4 py-12 md:py-20">
@@ -58,9 +50,9 @@ const HeroSection = () => {
             variant="outline"
             className="bg-white hover:bg-gray-50"
           >
-            <button onClick={() => scrollToSection("gtm-partners")}>
+            <Link to="/become-a-partner">
               Become a GTM partner
-            </button>
+            </Link>
           </Button>
         </div>
 

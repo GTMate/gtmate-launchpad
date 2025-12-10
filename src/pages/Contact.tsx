@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import MainFooter from "@/components/MainFooter";
@@ -83,31 +83,67 @@ const Contact = () => {
       .toUpperCase();
   };
 
+  // Load Calendly script when submitted
+  useEffect(() => {
+    if (submitted) {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+      
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [submitted]);
+
   if (submitted) {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <div className="pt-16 flex items-center justify-center px-4 min-h-[calc(100vh-4rem)]">
-          <div className="max-w-2xl w-full text-center space-y-6">
-            <div className="flex justify-center">
-              <CheckCircle2 className="h-16 w-16 text-[#874FFF]" />
+        <div className="pt-16 px-4 py-12">
+          <div className="max-w-4xl mx-auto">
+            {/* Thank You Message */}
+            <div className="text-center space-y-6 mb-12">
+              <div className="flex justify-center">
+                <CheckCircle2 className="h-16 w-16 text-[#874FFF]" />
+              </div>
+              <h1 className="text-4xl font-bold text-foreground">
+                Thank you, <span className="text-[#874FFF]">{formData.firstName}</span>!
+              </h1>
+              <p className="text-xl text-muted-foreground">
+                {partner ? (
+                  <>We've received your introduction request for <span className="font-semibold text-foreground">{partner.name}</span>. </>
+                ) : (
+                  <>We've received your request. </>
+                )}
+                Our team will contact you within 24 hours.
+              </p>
             </div>
-            <h1 className="text-4xl font-bold text-foreground">
-              Thank you, <span className="text-[#874FFF]">{formData.firstName}</span>!
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              {partner ? (
-                <>We've received your introduction request for <span className="font-semibold text-foreground">{partner.name}</span>. </>
-              ) : (
-                <>We've received your request. </>
-              )}
-              Our team will contact you within 24 hours.
-            </p>
-            <div className="pt-4">
+
+            {/* Calendly Section */}
+            <div className="mb-12">
+              <div className="text-center mb-2">
+                <h2 className="text-2xl font-bold text-foreground mb-1">
+                  Want to talk sooner?
+                </h2>
+                <p className="text-muted-foreground">
+                  Schedule a call with one of our sales representatives right now.
+                </p>
+              </div>
+              <div 
+                className="calendly-inline-widget" 
+                data-url="https://calendly.com/marcpierrem/30-minute-meeting?hide_gdpr_banner=1"
+                style={{ minWidth: '320px', height: '950px' }}
+              />
+            </div>
+
+            {/* Back to Home */}
+            <div className="text-center">
               <Button 
                 onClick={() => navigate("/")} 
                 size="lg"
-                className="bg-[#874FFF] hover:bg-[#7043DD]"
+                variant="outline"
               >
                 Go to Home
               </Button>

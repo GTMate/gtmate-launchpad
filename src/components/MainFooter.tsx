@@ -17,7 +17,7 @@ const MainFooter = () => {
       {
         title: "For GTM partners",
         links: [
-          { label: "Become a partner", href: "#gtm-partners" },
+          { label: "Become a partner", href: "/become-a-partner" },
           { label: "Partner benefits", href: "/partner-benefits" },
           { label: "Application process", href: "/apply" },
         ],

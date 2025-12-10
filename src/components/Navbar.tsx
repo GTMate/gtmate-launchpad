@@ -28,12 +28,12 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-6 md:flex">
-            <button
-              onClick={() => scrollToSection("gtm-partners")}
+            <Link
+              to="/become-a-partner"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Become a GTM partner
-            </button>
+            </Link>
             <a
               href="mailto:contact@gtmate.com"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -64,12 +64,13 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <div className="border-t border-border py-4 md:hidden">
             <div className="flex flex-col gap-4">
-              <button
-                onClick={() => scrollToSection("gtm-partners")}
+              <Link
+                to="/become-a-partner"
                 className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 Become a GTM partner
-              </button>
+              </Link>
               <a
                 href="mailto:contact@gtmate.com"
                 className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground"

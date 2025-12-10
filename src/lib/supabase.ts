@@ -202,3 +202,96 @@ export async function fetchContactRequestsByStatus(status: string): Promise<Cont
   return data as ContactRequest[];
 }
 
+// ============================================
+// Partner Applications Functions
+// ============================================
+
+export interface PartnerApplication {
+  id?: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
+  linkedin: string;
+  country: string;
+  experience: string;
+  industry: string;
+  status?: string;
+  created_at?: string;
+  updated_at?: string;
+  notes?: string;
+}
+
+export async function createPartnerApplication(application: PartnerApplication): Promise<{ success: boolean; error?: string; data?: any }> {
+  if (!supabase) {
+    console.error("Supabase client not initialized. Check VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.");
+    return { success: false, error: "Database not configured" };
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from('partner_applications')
+      .insert([{
+        first_name: application.first_name,
+        last_name: application.last_name,
+        email: application.email,
+        phone: application.phone,
+        linkedin: application.linkedin,
+        country: application.country,
+        experience: application.experience,
+        industry: application.industry,
+        status: 'pending'
+      }])
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Error creating partner application:", error);
+      return { success: false, error: error.message };
+    }
+
+    console.log("Partner application created successfully:", data);
+    return { success: true, data };
+  } catch (err) {
+    console.error("Unexpected error creating partner application:", err);
+    return { success: false, error: "Unexpected error occurred" };
+  }
+}
+
+export async function fetchPartnerApplications(): Promise<PartnerApplication[] | null> {
+  if (!supabase) {
+    console.warn("Supabase client not initialized.");
+    return null;
+  }
+  
+  const { data, error } = await supabase
+    .from('partner_applications')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error("Error fetching partner applications:", error);
+    return null;
+  }
+  return data as PartnerApplication[];
+}
+
+export async function fetchPartnerApplicationsByStatus(status: string): Promise<PartnerApplication[] | null> {
+  if (!supabase) {
+    console.warn("Supabase client not initialized.");
+    return null;
+  }
+  
+  const { data, error } = await supabase
+    .from('partner_applications')
+    .select('*')
+    .eq('status', status)
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error(`Error fetching partner applications with status ${status}:`, error);
+    return null;
+  }
+  return data as PartnerApplication[];
+}
+
