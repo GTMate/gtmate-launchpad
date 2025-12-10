@@ -25,7 +25,7 @@ const NotFound = () => {
           
           <div className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button asChild size="lg" variant="default" className="group">
-              <Link to="/apply">
+              <Link to="/contact">
                 Get a GTM partner
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
