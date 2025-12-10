@@ -50,7 +50,7 @@ const HeroSection = () => {
             size="lg" 
             className="bg-[#874FFF] hover:bg-[#7043DD] text-white"
           >
-            <Link to="/explore">Find a seller</Link>
+            <Link to="/explore">Find a seller here</Link>
           </Button>
           <Button
             asChild
