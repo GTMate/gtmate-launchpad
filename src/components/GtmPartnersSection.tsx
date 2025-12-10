@@ -74,8 +74,8 @@ const GtmPartnersSection = () => {
   };
 
   const handlePartnerClick = (partner: Partner) => {
-    // Navegar a /explore y simular el click en el partner
-    navigate('/explore', { state: { selectedPartnerId: partner.id } });
+    // Navegar a /contact con el partner seleccionado
+    navigate('/contact', { state: { partner } });
   };
 
   return (
@@ -179,9 +179,9 @@ const GtmPartnersSection = () => {
             size="lg"
             variant="outline"
             className="group"
-            onClick={() => navigate('/explore')}
+            onClick={() => navigate('/contact')}
           >
-            View All Partners
+            Contact Us
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>

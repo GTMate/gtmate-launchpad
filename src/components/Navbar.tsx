@@ -45,7 +45,7 @@ const Navbar = () => {
               size="sm"
               className="bg-[#874FFF] hover:bg-[#7043DD] text-white"
             >
-              <Link to="/explore">Find a seller</Link>
+              <Link to="/contact">Start Now</Link>
             </Button>
           </div>
 
@@ -81,7 +81,7 @@ const Navbar = () => {
                 size="sm" 
                 className="w-full bg-[#874FFF] hover:bg-[#7043DD] text-white"
               >
-                <Link to="/explore">Find a seller</Link>
+                <Link to="/contact">Start Now</Link>
               </Button>
             </div>
           </div>

@@ -96,18 +96,14 @@ const Contact = () => {
               Thank you, <span className="text-[#874FFF]">{formData.firstName}</span>!
             </h1>
             <p className="text-xl text-muted-foreground">
-              We've received your introduction request for <span className="font-semibold text-foreground">{partner?.name}</span>. 
-              Our team will facilitate the connection and you'll hear from us within 24 hours.
+              {partner ? (
+                <>We've received your introduction request for <span className="font-semibold text-foreground">{partner.name}</span>. </>
+              ) : (
+                <>We've received your request. </>
+              )}
+              Our team will contact you within 24 hours.
             </p>
-            <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                onClick={() => navigate("/explore")} 
-                size="lg"
-                variant="outline"
-              >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Partners
-              </Button>
+            <div className="pt-4">
               <Button 
                 onClick={() => navigate("/")} 
                 size="lg"
@@ -140,16 +136,19 @@ const Contact = () => {
                 Back
               </Button>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Request Introduction
+                {partner ? "Request Introduction" : "Start your expansion"}
               </h1>
               <p className="text-lg text-muted-foreground">
-                Fill out the form below and we'll connect you with this GTM partner within 24 hours.
+                {partner 
+                  ? "Fill out the form below and we'll connect you with this GTM partner within 24 hours."
+                  : "Share a few details about your expansion plans and we'll match you with a vetted GTM partner in your target region."
+                }
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-5 gap-8">
-              {/* Form Section - Takes 3 columns */}
-              <div className="lg:col-span-3">
+            <div className={`grid gap-8 ${partner ? "lg:grid-cols-5" : "lg:grid-cols-1 max-w-2xl"}`}>
+              {/* Form Section */}
+              <div className={partner ? "lg:col-span-3" : ""}>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Fields */}
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -211,26 +210,17 @@ const Contact = () => {
                         <SelectValue placeholder="Select your target region" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="latam">LATAM</SelectItem>
+                        <SelectItem value="latam">LATAM (Full Region)</SelectItem>
                         <SelectItem value="mexico">Mexico</SelectItem>
                         <SelectItem value="brazil">Brazil</SelectItem>
-                        <SelectItem value="argentina">Argentina</SelectItem>
-                        <SelectItem value="chile">Chile</SelectItem>
                         <SelectItem value="colombia">Colombia</SelectItem>
+                        <SelectItem value="chile">Chile</SelectItem>
+                        <SelectItem value="argentina">Argentina</SelectItem>
                         <SelectItem value="peru">Peru</SelectItem>
+                        <SelectItem value="ecuador">Ecuador</SelectItem>
+                        <SelectItem value="panama">Panama</SelectItem>
+                        <SelectItem value="costa-rica">Costa Rica</SelectItem>
                         <SelectItem value="uruguay">Uruguay</SelectItem>
-                        <SelectItem value="central-america">Central America</SelectItem>
-                        <SelectItem value="europe">Europe</SelectItem>
-                        <SelectItem value="spain">Spain</SelectItem>
-                        <SelectItem value="portugal">Portugal</SelectItem>
-                        <SelectItem value="italy">Italy</SelectItem>
-                        <SelectItem value="france">France</SelectItem>
-                        <SelectItem value="germany">Germany</SelectItem>
-                        <SelectItem value="uk">United Kingdom</SelectItem>
-                        <SelectItem value="north-america">North America</SelectItem>
-                        <SelectItem value="usa">United States</SelectItem>
-                        <SelectItem value="canada">Canada</SelectItem>
-                        <SelectItem value="apac">APAC</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
