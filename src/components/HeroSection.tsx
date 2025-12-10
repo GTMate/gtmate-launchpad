@@ -59,7 +59,7 @@ const HeroSection = () => {
             className="bg-white hover:bg-gray-50"
           >
             <button onClick={() => scrollToSection("gtm-partners")}>
-              Become a GTM partner now! ! sss
+              Become a GTM partner now! ! sss vamooooo
             </button>
           </Button>
         </div>
