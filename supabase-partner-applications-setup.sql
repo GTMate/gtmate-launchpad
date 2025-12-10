@@ -12,13 +12,13 @@ CREATE TABLE IF NOT EXISTS partner_applications (
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  phone VARCHAR(50) NOT NULL,
+  phone VARCHAR(50), -- Optional
   linkedin VARCHAR(500) NOT NULL,
   
   -- Información profesional
   country VARCHAR(100) NOT NULL,
-  experience VARCHAR(50) NOT NULL, -- 1-2, 3-5, 5-10, 10+
-  industry VARCHAR(100) NOT NULL,
+  experience VARCHAR(50), -- Optional (1-2, 3-5, 5-10, 10+)
+  industry VARCHAR(100), -- Optional
   
   -- Metadata
   status VARCHAR(50) DEFAULT 'pending', -- pending, reviewing, approved, rejected
@@ -83,10 +83,10 @@ CREATE POLICY "Admins can update partner applications"
 -- ============================================
 
 -- Insertar algunos datos de prueba
-INSERT INTO partner_applications (first_name, last_name, email, phone, linkedin, country, experience, industry, status) VALUES
-  ('Carlos', 'Mendoza', 'carlos.mendoza@example.com', '+52 55 1234 5678', 'https://linkedin.com/in/carlosmendoza', 'mexico', '5-10', 'saas-software', 'pending'),
-  ('Maria', 'Silva', 'maria.silva@example.com', '+55 11 98765 4321', 'https://linkedin.com/in/mariasilva', 'brazil', '10+', 'fintech', 'reviewing'),
-  ('Pablo', 'García', 'pablo.garcia@example.com', '+54 11 4567 8901', 'https://linkedin.com/in/pablogarcia', 'argentina', '3-5', 'ecommerce-retail', 'approved');
+INSERT INTO partner_applications (first_name, last_name, email, phone, linkedin, country, status) VALUES
+  ('Carlos', 'Mendoza', 'carlos.mendoza@example.com', '+52 55 1234 5678', 'https://linkedin.com/in/carlosmendoza', 'mexico', 'pending'),
+  ('Maria', 'Silva', 'maria.silva@example.com', NULL, 'https://linkedin.com/in/mariasilva', 'brazil', 'reviewing'),
+  ('Pablo', 'García', 'pablo.garcia@example.com', '+54 11 4567 8901', 'https://linkedin.com/in/pablogarcia', 'argentina', 'approved');
 
 -- ============================================
 -- Queries útiles

@@ -37,31 +37,6 @@ const LATAM_COUNTRIES = [
   { value: "puerto-rico", label: "Puerto Rico" },
 ];
 
-const EXPERIENCE_YEARS = [
-  { value: "1-2", label: "1-2 years" },
-  { value: "3-5", label: "3-5 years" },
-  { value: "5-10", label: "5-10 years" },
-  { value: "10+", label: "10+ years" },
-];
-
-const INDUSTRIES = [
-  { value: "saas-software", label: "SaaS / Software" },
-  { value: "fintech", label: "Fintech" },
-  { value: "ecommerce-retail", label: "E-commerce / Retail" },
-  { value: "healthcare-healthtech", label: "Healthcare / Healthtech" },
-  { value: "manufacturing", label: "Manufacturing" },
-  { value: "logistics-supply-chain", label: "Logistics / Supply Chain" },
-  { value: "real-estate-proptech", label: "Real Estate / Proptech" },
-  { value: "education-edtech", label: "Education / Edtech" },
-  { value: "telecommunications", label: "Telecommunications" },
-  { value: "energy-utilities", label: "Energy / Utilities" },
-  { value: "financial-services-banking", label: "Financial Services / Banking" },
-  { value: "insurance-insurtech", label: "Insurance / Insurtech" },
-  { value: "automotive", label: "Automotive" },
-  { value: "food-beverage", label: "Food & Beverage" },
-  { value: "professional-services", label: "Professional Services" },
-];
-
 const BecomePartner = () => {
   const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
@@ -72,8 +47,6 @@ const BecomePartner = () => {
     phone: "",
     linkedin: "",
     country: "",
-    experience: "",
-    industry: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -86,11 +59,11 @@ const BecomePartner = () => {
       first_name: formData.firstName,
       last_name: formData.lastName,
       email: formData.email,
-      phone: formData.phone,
+      phone: formData.phone || null,
       linkedin: formData.linkedin,
       country: formData.country,
-      experience: formData.experience,
-      industry: formData.industry,
+      experience: null,
+      industry: null,
     };
     
     const result = await createPartnerApplication(applicationData);
@@ -205,11 +178,10 @@ const BecomePartner = () => {
 
               {/* Phone */}
               <div className="space-y-2">
-                <Label htmlFor="phone">Phone *</Label>
+                <Label htmlFor="phone">Phone (optional)</Label>
                 <Input
                   id="phone"
                   type="tel"
-                  required
                   value={formData.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
                   placeholder="+1 234 567 8900"
@@ -243,46 +215,6 @@ const BecomePartner = () => {
                     {LATAM_COUNTRIES.map((country) => (
                       <SelectItem key={country.value} value={country.value}>
                         {country.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              {/* Years of Experience */}
-              <div className="space-y-2">
-                <Label htmlFor="experience">Years of Sales Experience *</Label>
-                <Select
-                  value={formData.experience}
-                  onValueChange={(value) => handleChange("experience", value)}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select your experience" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {EXPERIENCE_YEARS.map((exp) => (
-                      <SelectItem key={exp.value} value={exp.value}>
-                        {exp.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              {/* Industry */}
-              <div className="space-y-2">
-                <Label htmlFor="industry">Primary Industry Experience *</Label>
-                <Select
-                  value={formData.industry}
-                  onValueChange={(value) => handleChange("industry", value)}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select your primary industry" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {INDUSTRIES.map((ind) => (
-                      <SelectItem key={ind.value} value={ind.value}>
-                        {ind.label}
                       </SelectItem>
                     ))}
                   </SelectContent>

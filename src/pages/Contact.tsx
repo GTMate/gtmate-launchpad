@@ -5,16 +5,53 @@ import MainFooter from "@/components/MainFooter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { CheckCircle2, ArrowLeft } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { ChevronDown, X, CheckCircle2, ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+const REGION_GROUPS = [
+  {
+    title: "LATAM",
+    regions: [
+      { value: "latam", label: "LATAM (Full Region)" },
+      { value: "argentina", label: "Argentina" },
+      { value: "brazil", label: "Brazil" },
+      { value: "chile", label: "Chile" },
+      { value: "colombia", label: "Colombia" },
+      { value: "costa-rica", label: "Costa Rica" },
+      { value: "ecuador", label: "Ecuador" },
+      { value: "mexico", label: "Mexico" },
+      { value: "panama", label: "Panama" },
+      { value: "peru", label: "Peru" },
+      { value: "uruguay", label: "Uruguay" },
+    ],
+  },
+  {
+    title: "Europe",
+    regions: [
+      { value: "europe", label: "Europe (Full Region)" },
+      { value: "france", label: "France" },
+      { value: "germany", label: "Germany" },
+      { value: "ireland", label: "Ireland" },
+      { value: "italy", label: "Italy" },
+      { value: "netherlands", label: "Netherlands" },
+      { value: "portugal", label: "Portugal" },
+      { value: "spain", label: "Spain" },
+      { value: "sweden", label: "Sweden" },
+      { value: "switzerland", label: "Switzerland" },
+      { value: "uk", label: "United Kingdom" },
+    ],
+  },
+];
+
+// Flat list for lookups
+const ALL_REGIONS = REGION_GROUPS.flatMap((group) => group.regions);
 
 interface Partner {
   id: string;
@@ -37,7 +74,7 @@ const Contact = () => {
     lastName: "",
     companyName: "",
     email: "",
-    targetRegion: "",
+    targetRegions: [] as string[],
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -52,7 +89,7 @@ const Contact = () => {
       last_name: formData.lastName,
       company_name: formData.companyName,
       email: formData.email,
-      target_region: formData.targetRegion,
+      target_region: formData.targetRegions.join(", "),
       partner_id: partner?.id,
       partner_name: partner?.name,
     };
@@ -73,6 +110,82 @@ const Contact = () => {
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const toggleRegion = (region: string) => {
+    setFormData((prev) => {
+      const isSelected = prev.targetRegions.includes(region);
+      
+      // Check if this is a "full region" option
+      if (region === "latam" || region === "europe") {
+        const group = REGION_GROUPS.find((g) => 
+          g.regions.some((r) => r.value === region)
+        );
+        if (group) {
+          const allRegionValues = group.regions.map((r) => r.value);
+          
+          if (isSelected) {
+            // Deselecting full region: remove all countries from this group
+            return {
+              ...prev,
+              targetRegions: prev.targetRegions.filter((r) => !allRegionValues.includes(r)),
+            };
+          } else {
+            // Selecting full region: add all countries from this group
+            const newRegions = [...prev.targetRegions];
+            allRegionValues.forEach((r) => {
+              if (!newRegions.includes(r)) {
+                newRegions.push(r);
+              }
+            });
+            return { ...prev, targetRegions: newRegions };
+          }
+        }
+      }
+      
+      // Regular country toggle
+      if (isSelected) {
+        // Deselecting a country: also deselect the full region if it was selected
+        const group = REGION_GROUPS.find((g) => 
+          g.regions.some((r) => r.value === region)
+        );
+        const fullRegionValue = group?.regions[0].value; // First item is always "Full Region"
+        
+        return {
+          ...prev,
+          targetRegions: prev.targetRegions
+            .filter((r) => r !== region)
+            .filter((r) => r !== fullRegionValue),
+        };
+      } else {
+        // Selecting a country: check if all countries in group are now selected
+        const newRegions = [...prev.targetRegions, region];
+        
+        const group = REGION_GROUPS.find((g) => 
+          g.regions.some((r) => r.value === region)
+        );
+        
+        if (group) {
+          const fullRegionValue = group.regions[0].value;
+          const countryValues = group.regions.slice(1).map((r) => r.value); // All except "Full Region"
+          const allCountriesSelected = countryValues.every((c) => newRegions.includes(c));
+          
+          // If all countries are selected, also select the full region
+          if (allCountriesSelected && !newRegions.includes(fullRegionValue)) {
+            newRegions.push(fullRegionValue);
+          }
+        }
+        
+        return { ...prev, targetRegions: newRegions };
+      }
+    });
+  };
+
+  const removeRegion = (region: string) => {
+    // Use toggleRegion logic to handle full region deselection
+    if (formData.targetRegions.includes(region)) {
+      toggleRegion(region);
+    }
   };
 
   const getInitials = (name: string) => {
@@ -235,30 +348,66 @@ const Contact = () => {
                     />
                   </div>
 
-                  {/* Target Region */}
+                  {/* Target Regions - Multi Select */}
                   <div className="space-y-2">
-                    <Label htmlFor="targetRegion">Target Region *</Label>
-                    <Select
-                      value={formData.targetRegion}
-                      onValueChange={(value) => handleChange("targetRegion", value)}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select your target region" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="latam">LATAM (Full Region)</SelectItem>
-                        <SelectItem value="mexico">Mexico</SelectItem>
-                        <SelectItem value="brazil">Brazil</SelectItem>
-                        <SelectItem value="colombia">Colombia</SelectItem>
-                        <SelectItem value="chile">Chile</SelectItem>
-                        <SelectItem value="argentina">Argentina</SelectItem>
-                        <SelectItem value="peru">Peru</SelectItem>
-                        <SelectItem value="ecuador">Ecuador</SelectItem>
-                        <SelectItem value="panama">Panama</SelectItem>
-                        <SelectItem value="costa-rica">Costa Rica</SelectItem>
-                        <SelectItem value="uruguay">Uruguay</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <Label>Target Regions *</Label>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          role="combobox"
+                          className="w-full justify-between font-normal"
+                        >
+                          {formData.targetRegions.length > 0
+                            ? `${formData.targetRegions.length} region(s) selected`
+                            : "Select target regions"}
+                          <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-full p-0" align="start">
+                        <div className="max-h-72 overflow-y-auto p-2">
+                          {REGION_GROUPS.map((group, groupIndex) => (
+                            <div key={group.title}>
+                              {groupIndex > 0 && <div className="my-2 border-t border-border" />}
+                              <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                                {group.title}
+                              </div>
+                              {group.regions.map((region) => (
+                                <div
+                                  key={region.value}
+                                  className="flex items-center space-x-2 p-2 hover:bg-muted rounded cursor-pointer"
+                                  onClick={() => toggleRegion(region.value)}
+                                >
+                                  <Checkbox
+                                    checked={formData.targetRegions.includes(region.value)}
+                                    onCheckedChange={() => toggleRegion(region.value)}
+                                  />
+                                  <span className="text-sm">{region.label}</span>
+                                </div>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
+                      </PopoverContent>
+                    </Popover>
+                    {formData.targetRegions.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {formData.targetRegions.map((region) => {
+                          const regionData = ALL_REGIONS.find((r) => r.value === region);
+                          return (
+                            <Badge
+                              key={region}
+                              variant="secondary"
+                              className="cursor-pointer gap-1"
+                              onClick={() => removeRegion(region)}
+                            >
+                              {regionData?.label || region}
+                              <X className="h-3 w-3" />
+                            </Badge>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
 
                   {/* Submit Button */}
