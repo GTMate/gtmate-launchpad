@@ -37,16 +37,7 @@ const HeroSection = () => {
           >
             <Link to="/contact">Start Now</Link>
           </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="bg-white hover:bg-gray-50"
-          >
-            <Link to="/become-a-partner">
-              Become a GTM partner
-            </Link>
-          </Button>
+          
         </div>
       </div>
     </section>
