@@ -95,7 +95,7 @@ const GtmPartnersSection = () => {
             Our Network
           </p>
           <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
-            Vetted GTM partners across LATAM & Europe
+            Vetted sellers across LATAM & Europe
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Senior sales leaders with proven track records at top companies. Every partner is carefully vetted for experience, network, and results.
@@ -196,7 +196,7 @@ const GtmPartnersSection = () => {
         {/* CTA */}
         <div className="mt-10 text-center">
           <p className="text-muted-foreground mb-4">
-            Ready to meet your ideal GTM partner?
+            Ready to meet your ideal seller?
           </p>
           <Button
             size="lg"
