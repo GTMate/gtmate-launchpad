@@ -289,8 +289,8 @@ const Contact = () => {
               </h1>
               <p className="text-lg text-muted-foreground">
                 {partner 
-                  ? "Fill out the form below and we'll connect you with this GTM partner within 24 hours."
-                  : "Share a few details about your expansion plans and we'll match you with a vetted GTM partner in your target region."
+                  ? "Fill out the form below and we'll connect with you within 24 hours."
+                  : "Share a few details about your expansion plans and we'll get in contact with you."
                 }
               </p>
             </div>
