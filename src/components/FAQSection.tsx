@@ -10,12 +10,12 @@ const FAQSection = () => {
     {
       question: "How is this different from hiring a local sales rep?",
       answer:
-        "Our GTM partners are experienced sales leaders with existing networks, not entry-level reps. They work on commission, so you pay for results, not salaries. And they start selling immediately—no 3-month ramp time.",
+        "Our sellers are experienced sales leaders with existing networks, not entry-level reps. They work on commission, so you pay for results, not salaries. And they start selling immediately—no 3-month ramp time.",
     },
     {
-      question: "What if the GTM partner doesn't perform?",
+      question: "What if the local seller doesn't perform?",
       answer:
-        "We monitor performance closely and can replace partners if needed. Since it's commission-based, you're not locked into fixed costs. We also set clear 30-60-90 day goals upfront.",
+        "We monitor performance closely and can replace sellers if needed. Since it's commission-based, you're not locked into fixed costs. We also set clear 30-60-90 day goals upfront.",
     },
     {
       question: "How long does it take to get started?",
@@ -25,7 +25,7 @@ const FAQSection = () => {
     {
       question: "What commission structure do local sellers work on?",
       answer:
-        "It varies by deal size and market, but typically 10-20% of first-year contract value. We help you structure a fair deal that motivates your partner while protecting your margins.",
+        "It varies by deal size and market, but typically 10-20% of first-year contract value. We help you structure a fair deal that motivates your seller while protecting your margins.",
     },
     {
       question: "Do I need to provide leads, or do they generate their own?",
@@ -33,9 +33,9 @@ const FAQSection = () => {
         "Your sellers generates their own leads using their local network and market knowledge. You provide sales materials, pricing, and product training. They handle prospecting, demos, and closing.",
     },
     {
-      question: "Can I work with multipl sellers at once?",
+      question: "Can I work with multiple sellers at once?",
       answer:
-        "Yes, absolutely. Many clients use different partners for different markets or verticals. We help coordinate to avoid overlap.",
+        "Yes, absolutely. Many clients use different sellers for different markets or verticals. We help coordinate to avoid overlap.",
     },
   ];
 
@@ -46,7 +46,7 @@ const FAQSection = () => {
           Frequently asked questions
         </h2>
         <p className="mb-12 text-center text-muted-foreground">
-          Everything you need to know about working with GTM partners
+          Everything you need to know about working with local sellers
         </p>
 
         <Accordion type="single" collapsible className="w-full">
