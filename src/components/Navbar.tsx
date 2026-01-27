@@ -69,7 +69,7 @@ const Navbar = () => {
                 className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Become a GTM partner
+                Become a partner
               </Link>
               <a
                 href="mailto:contact@gtmate.com"
