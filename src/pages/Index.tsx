@@ -17,7 +17,7 @@ const Index = () => {
       <div className="pt-16">
         <MetricsBar />
         <HeroSection />
-        <LogosSection />
+       {/* <LogosSection /> */}
        {/* <HowItWorksSection /> */}
         <GtmPartnersSection />
         <PricingSection />
