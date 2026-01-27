@@ -16,7 +16,7 @@ const HowItWorksSection = () => {
       number: "02",
       title: "Get matched and onboarded",
       description:
-        "We match you with a vetted GTM partner and train them on your product, value proposition, and sales process so they can represent your business effectively.",
+        "We match you with a vetted local seller and train them on your product, value proposition, and sales process so they can represent your business effectively.",
       highlight: "7-14 days",
     },
     {
@@ -24,7 +24,7 @@ const HowItWorksSection = () => {
       number: "03",
       title: "Start selling in your new market",
       description:
-        "Your GTM partner starts prospecting, booking meetings, and closing deals while you focus on your core market.",
+        "Your seller starts prospecting, booking meetings, and closing deals while you focus on your core market.",
       highlight: "Active prospecting",
     },
   ];
