@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const PRICING_PLANS = [
   {
     name: "STARTER",
-    price: "Talk to sales",
+    price: "",
     period: "",
     successFee: "",
     description: "Perfect for early validation and first steps into a new market",
@@ -29,9 +29,9 @@ const PRICING_PLANS = [
   },
   {
     name: "SCALE",
-    price: "$5,000",
-    period: "/mo",
-    successFee: "+ 3–5% success fee",
+    price: "$",
+    period: "",
+    successFee: "",
     description: "Our most popular plan — end-to-end GTM launch execution",
     features: [
       "Full GTM playbook",
@@ -46,9 +46,9 @@ const PRICING_PLANS = [
   },
   {
     name: "ENTERPRISE",
-    price: "$12,000",
-    period: "/mo",
-    successFee: "+ 5–8% success fee",
+    price: "",
+    period: "",
+    successFee: "",
     description: "Built for serious market expansion with dedicated resources",
     features: [
       "Dedicated GTM team (strategist + ops + SDR)",
