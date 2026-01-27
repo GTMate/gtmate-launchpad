@@ -74,7 +74,7 @@ const PricingSection = () => {
           </p>
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
             Launch your local sales with confidence
-          </h2>t
+          </h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
