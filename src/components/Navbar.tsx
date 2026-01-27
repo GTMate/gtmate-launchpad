@@ -32,7 +32,7 @@ const Navbar = () => {
               to="/become-a-partner"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              Become a GTM partner
+              Become a partner
             </Link>
             <a
               href="mailto:contact@gtmate.com"
