@@ -5,7 +5,7 @@ const MetricsBar = () => {
       number: "15+",
     },
     {
-      label: "GTM partners vetted",
+      label: "Sellers vetted",
       number: "75+",
     },
     {
