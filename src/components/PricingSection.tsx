@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 const PRICING_PLANS = [
   {
     name: "STARTER",
-    price: "$1,500",
-    period: "/mo",
-    successFee: "+ 2% success fee",
+    price: "Talk to sales",
+    period: "",
+    successFee: "",
     description: "Perfect for early validation and first steps into a new market",
     features: [
       "ICP & messaging",
