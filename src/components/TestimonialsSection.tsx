@@ -4,7 +4,7 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       quote:
-        "We went from zero to first customer in Mexico in 45 days. Our GTM partner had the network and knew exactly how to position our product.",
+        "We went from zero to first customer in Mexico in 45 days. Our local seller had the network and knew exactly how to position our product.",
       author: "Sarah Chen",
       role: "VP of Sales, AI SaaS Company",
       company: "Previously 0 revenue in LATAM",
@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
     },
     {
       quote:
-        "Our GTM partner brought relationships we could never have built ourselves. They understand local business culture and speak the language.",
+        "Our seller brought relationships we could never have built ourselves. They understand local business culture and speak the language.",
       author: "Laura Martinez",
       role: "Head of International, Data Platform",
       company: "Now active in 4 LATAM markets",
