@@ -18,7 +18,7 @@ const Index = () => {
         <MetricsBar />
         <HeroSection />
         <LogosSection />
-        <HowItWorksSection />
+        //<HowItWorksSection />
         <GtmPartnersSection />
         <PricingSection />
         <TestimonialsSection />
