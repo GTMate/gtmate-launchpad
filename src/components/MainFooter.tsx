@@ -10,25 +10,13 @@ const MainFooter = () => {
         links: [
           // { label: "How it works", href: "#how-it-works" },
           // { label: "Success stories", href: "#expansions" },
-          { label: "Get a GTM partner", href: "/apply" },
-          { label: "Pricing", href: "/pricing" },
+          { label: "Get a local seller", href: "/apply" },
         ],
       },
       {
-        title: "For GTM partners",
+        title: "For partners",
         links: [
           { label: "Become a partner", href: "/become-a-partner" },
-          { label: "Partner benefits", href: "/partner-benefits" },
-          { label: "Application process", href: "/apply" },
-        ],
-      },
-      {
-        title: "Resources",
-        links: [
-          { label: "Blog", href: "/blog" },
-          { label: "Case studies", href: "/case-studies" },
-          { label: "Contact us", href: "mailto:contact@gtmate.com" },
-          { label: "FAQ", href: "/faq" },
         ],
       },
     ],
@@ -49,7 +37,7 @@ const MainFooter = () => {
           <div>
             <h3 className="mb-4 text-xl font-bold text-foreground">GTMate</h3>
             <p className="text-sm text-muted-foreground">
-              Connecting companies with local GTM partners for faster, smarter
+              Connecting companies with local sellers for faster, smarter
               market expansion.
             </p>
           </div>
