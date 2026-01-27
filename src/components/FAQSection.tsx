@@ -20,20 +20,20 @@ const FAQSection = () => {
     {
       question: "How long does it take to get started?",
       answer:
-        "Typically 7-14 days from application to first intro call with your matched GTM partner. Most partners start outreach within their first week.",
+        "Typically 7-14 days from application to first intro call with your matched local seller. Most partners start outreach within their first week.",
     },
     {
-      question: "What commission structure do GTM partners work on?",
+      question: "What commission structure do local sellers work on?",
       answer:
         "It varies by deal size and market, but typically 10-20% of first-year contract value. We help you structure a fair deal that motivates your partner while protecting your margins.",
     },
     {
       question: "Do I need to provide leads, or do they generate their own?",
       answer:
-        "Your GTM partner generates their own leads using their local network and market knowledge. You provide sales materials, pricing, and product training. They handle prospecting, demos, and closing.",
+        "Your sellers generates their own leads using their local network and market knowledge. You provide sales materials, pricing, and product training. They handle prospecting, demos, and closing.",
     },
     {
-      question: "Can I work with multiple GTM partners at once?",
+      question: "Can I work with multipl sellers at once?",
       answer:
         "Yes, absolutely. Many clients use different partners for different markets or verticals. We help coordinate to avoid overlap.",
     },
