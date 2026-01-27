@@ -11,7 +11,7 @@ const CTASection = () => {
             Ready to open your next market?
           </h2>
           <p className="mb-8 text-lg text-muted-foreground md:text-xl">
-            Browse our vetted GTM partners and find the perfect match for your expansion goals.
+            Browse our vetted local sellers and find the right match to expand into new markets.
           </p>
           <Button 
             asChild 
