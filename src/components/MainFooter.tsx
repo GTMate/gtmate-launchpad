@@ -10,7 +10,7 @@ const MainFooter = () => {
         links: [
           // { label: "How it works", href: "#how-it-works" },
           // { label: "Success stories", href: "#expansions" },
-          { label: "Get a local seller", href: "/apply" },
+          { label: "Get a local seller", href: "/contact" },
         ],
       },
       {
