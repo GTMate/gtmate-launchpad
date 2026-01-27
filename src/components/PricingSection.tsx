@@ -18,7 +18,7 @@ const PRICING_PLANS = [
       "Monthly strategy call",
       "KPI dashboard",
     ],
-    cta: "Get Started",
+    cta: "Talk to Sales",
     ctaVariant: "outline" as const,
     popular: false,
     addOns: [
@@ -29,7 +29,7 @@ const PRICING_PLANS = [
   },
   {
     name: "SCALE",
-    price: "$",
+    price: "",
     period: "",
     successFee: "",
     description: "Our most popular plan — end-to-end GTM launch execution",
@@ -39,7 +39,7 @@ const PRICING_PLANS = [
       "CRM & funnel setup",
       "SDR or GTM operator (part-time)",
     ],
-    cta: "Start Scaling",
+    cta: "Talk to Sales",
     ctaVariant: "default" as const,
     popular: true,
     addOns: null,
