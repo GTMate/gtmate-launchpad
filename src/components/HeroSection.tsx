@@ -33,7 +33,7 @@ const HeroSection = () => {
           <Button 
             asChild 
             size="lg" 
-            className="bg-[#874FFF] hover:bg-[#7043DD] text-white"
+            className="bg-[#FF6B35] hover:bg-[#E85A2A] text-white"
           >
             <Link to="/contact">Talk to us</Link>
           </Button>

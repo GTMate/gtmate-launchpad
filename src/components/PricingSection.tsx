@@ -69,7 +69,7 @@ const PricingSection = () => {
     <section className="border-t border-border bg-background py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="text-sm font-medium text-[#874FFF] uppercase tracking-wide mb-2">
+          <p className="text-sm font-medium text-[#FF6B35] uppercase tracking-wide mb-2">
             Pricing Plans
           </p>
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
@@ -83,13 +83,13 @@ const PricingSection = () => {
               key={plan.name}
               className={`relative overflow-hidden ${
                 plan.popular
-                  ? "border-[#874FFF] border-2 shadow-lg"
+                  ? "border-[#FF6B35] border-2 shadow-lg"
                   : "border-border"
               }`}
             >
               {plan.popular && (
                 <div className="absolute top-0 right-0">
-                  <Badge className="rounded-none rounded-bl-lg bg-[#874FFF] text-white hover:bg-[#874FFF]">
+                  <Badge className="rounded-none rounded-bl-lg bg-[#FF6B35] text-white hover:bg-[#FF6B35]">
                     MOST POPULAR
                   </Badge>
                 </div>
@@ -116,7 +116,7 @@ const PricingSection = () => {
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-[#874FFF] flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-[#FF6B35] flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-foreground">{feature}</span>
                     </li>
                   ))}
@@ -127,7 +127,7 @@ const PricingSection = () => {
                   variant={plan.ctaVariant}
                   className={`w-full ${
                     plan.popular
-                      ? "bg-[#874FFF] hover:bg-[#7043DD] text-white"
+                      ? "bg-[#FF6B35] hover:bg-[#E85A2A] text-white"
                       : ""
                   }`}
                 >

@@ -16,7 +16,7 @@ const CTASection = () => {
           <Button 
             asChild 
             size="lg" 
-            className="group bg-[#874FFF] hover:bg-[#7043DD]"
+            className="group bg-[#FF6B35] hover:bg-[#E85A2A]"
           >
             <Link to="/contact">
               Start Now

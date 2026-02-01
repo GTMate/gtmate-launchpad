@@ -43,7 +43,7 @@ const Navbar = () => {
             <Button 
               asChild 
               size="sm"
-              className="bg-[#874FFF] hover:bg-[#7043DD] text-white"
+              className="bg-[#FF6B35] hover:bg-[#E85A2A] text-white"
             >
               <Link to="/contact">Start Now</Link>
             </Button>
@@ -81,7 +81,7 @@ const Navbar = () => {
               <Button 
                 asChild 
                 size="sm" 
-                className="w-full bg-[#874FFF] hover:bg-[#7043DD] text-white"
+                className="w-full bg-[#FF6B35] hover:bg-[#E85A2A] text-white"
               >
                 <Link to="/contact">Start Now</Link>
               </Button>
