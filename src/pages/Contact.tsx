@@ -225,10 +225,10 @@ const Contact = () => {
             {/* Thank You Message */}
             <div className="text-center space-y-6 mb-12">
               <div className="flex justify-center">
-                <CheckCircle2 className="h-16 w-16 text-[#FF6B35]" />
+                <CheckCircle2 className="h-16 w-16 text-[#F5DEB3]" />
               </div>
               <h1 className="text-4xl font-bold text-foreground">
-                Thank you, <span className="text-[#FF6B35]">{formData.firstName}</span>!
+                Thank you, <span className="text-[#F5DEB3]">{formData.firstName}</span>!
               </h1>
               <p className="text-xl text-muted-foreground">
                 {partner ? (
@@ -420,7 +420,7 @@ const Contact = () => {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-[#FF6B35] hover:bg-[#E85A2A]"
+                    className="w-full bg-white hover:bg-gray-100 text-black"
                     disabled={isLoading}
                   >
                     {isLoading ? (
@@ -459,10 +459,10 @@ const Contact = () => {
                           <div className="flex items-center gap-2 mb-1">
                             <h4 className="text-xl font-semibold">{partner.name}</h4>
                             {partner.verified && (
-                              <CheckCircle2 className="h-5 w-5 text-[#FF6B35]" />
+                              <CheckCircle2 className="h-5 w-5 text-[#F5DEB3]" />
                             )}
                           </div>
-                          <p className="text-lg font-bold text-[#FF6B35]">
+                          <p className="text-lg font-bold text-[#F5DEB3]">
                             ${partner.rate}/hr
                           </p>
                         </div>
@@ -483,19 +483,19 @@ const Contact = () => {
                       {/* Benefits */}
                       <div className="pt-4 border-t border-border space-y-2">
                         <div className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-[#FF6B35]" />
+                          <CheckCircle2 className="h-4 w-4 text-[#F5DEB3]" />
                           <span>Carefully vetted by GTMate</span>
                         </div>
                         <div className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-[#FF6B35]" />
+                          <CheckCircle2 className="h-4 w-4 text-[#F5DEB3]" />
                           <span>Deep local market knowledge</span>
                         </div>
                         <div className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-[#FF6B35]" />
+                          <CheckCircle2 className="h-4 w-4 text-[#F5DEB3]" />
                           <span>Commission-based pricing</span>
                         </div>
                         <div className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-[#FF6B35]" />
+                          <CheckCircle2 className="h-4 w-4 text-[#F5DEB3]" />
                           <span>Start in 30 days</span>
                         </div>
                       </div>

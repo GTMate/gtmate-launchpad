@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import MetricsBar from "@/components/MetricsBar";
 import HeroSection from "@/components/HeroSection";
 import LogosSection from "@/components/LogosSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
@@ -14,18 +13,15 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="pt-16">
-        <MetricsBar />
-        <HeroSection />
-       {/* <LogosSection /> */}
-       {/* <HowItWorksSection /> */}
-        <GtmPartnersSection />
-        <PricingSection />
-        <TestimonialsSection />
-        <FAQSection />
-        <CTASection />
-        <MainFooter />
-      </div>
+      <HeroSection />
+     {/* <LogosSection /> */}
+     {/* <HowItWorksSection /> */}
+      <GtmPartnersSection />
+      <PricingSection />
+      <TestimonialsSection />
+      <FAQSection />
+      <CTASection />
+      <MainFooter />
     </div>
   );
 };

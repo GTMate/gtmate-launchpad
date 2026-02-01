@@ -181,10 +181,10 @@ const BecomePartner = () => {
         <div className="pt-16 flex items-center justify-center px-4 min-h-[calc(100vh-4rem)]">
           <div className="max-w-2xl w-full text-center space-y-6">
             <div className="flex justify-center">
-              <CheckCircle2 className="h-16 w-16 text-[#FF6B35]" />
+              <CheckCircle2 className="h-16 w-16 text-[#F5DEB3]" />
             </div>
             <h1 className="text-4xl font-bold text-foreground">
-              Thank you, <span className="text-[#FF6B35]">{formData.firstName}</span>!
+              Thank you, <span className="text-[#F5DEB3]">{formData.firstName}</span>!
             </h1>
             <p className="text-xl text-muted-foreground">
               We've received your application to become a GTM partner. 
@@ -194,7 +194,7 @@ const BecomePartner = () => {
               <Button 
                 onClick={() => navigate("/")} 
                 size="lg"
-                className="bg-[#FF6B35] hover:bg-[#E85A2A]"
+                className="bg-white hover:bg-gray-100 text-black"
               >
                 Go to Home
               </Button>
@@ -360,7 +360,7 @@ const BecomePartner = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-[#FF6B35] hover:bg-[#E85A2A]"
+                className="w-full bg-white hover:bg-gray-100 text-black"
                 disabled={isLoading}
               >
                 {isLoading ? (

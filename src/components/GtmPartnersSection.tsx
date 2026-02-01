@@ -91,7 +91,7 @@ const GtmPartnersSection = () => {
     >
       <div className="container mx-auto px-4">
         <div className="mb-8 text-center">
-          <p className="text-sm font-medium text-[#FF6B35] uppercase tracking-wide mb-2">
+          <p className="text-sm font-medium text-[#F5DEB3] uppercase tracking-wide mb-2">
             Our Network
           </p>
           <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
@@ -105,15 +105,15 @@ const GtmPartnersSection = () => {
         {/* Stats bar */}
         <div className="flex flex-wrap justify-center gap-8 mb-10 py-6 border-y border-border">
           <div className="flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-[#FF6B35]" />
+            <TrendingUp className="h-5 w-5 text-[#F5DEB3]" />
             <span className="text-sm text-muted-foreground">Avg. <span className="font-semibold text-foreground">10+ years</span> sales experience</span>
           </div>
           <div className="flex items-center gap-2">
-            <Building2 className="h-5 w-5 text-[#FF6B35]" />
+            <Building2 className="h-5 w-5 text-[#F5DEB3]" />
             <span className="text-sm text-muted-foreground">Ex-leaders from <span className="font-semibold text-foreground">top tech companies</span></span>
           </div>
           <div className="flex items-center gap-2">
-            <Globe className="h-5 w-5 text-[#FF6B35]" />
+            <Globe className="h-5 w-5 text-[#F5DEB3]" />
             <span className="text-sm text-muted-foreground"><span className="font-semibold text-foreground">15+ markets</span> covered</span>
           </div>
         </div>
@@ -142,7 +142,7 @@ const GtmPartnersSection = () => {
                       {partner.name}
                     </h3>
                     {partner.verified && (
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#FF6B35]" />
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#F5DEB3]" />
                     )}
                   </div>
                   <div className="flex flex-wrap justify-center gap-1 mb-2">
@@ -174,7 +174,7 @@ const GtmPartnersSection = () => {
                       {partner.name}
                     </h3>
                     {partner.verified && (
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#FF6B35]" />
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#F5DEB3]" />
                     )}
                   </div>
                   <div className="flex flex-wrap justify-center gap-1 mb-2">
@@ -200,7 +200,7 @@ const GtmPartnersSection = () => {
           </p>
           <Button
             size="lg"
-            className="group bg-[#FF6B35] hover:bg-[#E85A2A]"
+            className="group bg-white hover:bg-gray-100 text-black"
             onClick={() => navigate('/contact')}
           >
             Get matched now

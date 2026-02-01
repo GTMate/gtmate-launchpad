@@ -66,58 +66,61 @@ const PRICING_PLANS = [
 
 const PricingSection = () => {
   return (
-    <section className="border-t border-border bg-background py-20">
+    <section className="border-t border-border bg-background py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="text-sm font-medium text-[#FF6B35] uppercase tracking-wide mb-2">
+        <div className="text-center mb-16">
+          <p className="text-sm font-semibold text-[#F5DEB3] uppercase tracking-wide mb-3">
             Pricing Plans
           </p>
-          <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+          <h2 className="text-4xl font-extrabold text-foreground md:text-5xl tracking-tight">
             Launch your local sales with confidence
           </h2>
+          <p className="text-xl text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Transparent pricing that scales with your success
+          </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
+        <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
           {PRICING_PLANS.map((plan) => (
             <Card
               key={plan.name}
-              className={`relative overflow-hidden ${
+              className={`relative overflow-hidden transition-all duration-300 hover:shadow-xl bg-card ${
                 plan.popular
-                  ? "border-[#FF6B35] border-2 shadow-lg"
-                  : "border-border"
+                  ? "border-[#F5DEB3] border-2 shadow-lg scale-105"
+                  : "border-border hover:border-[#F5DEB3]/30"
               }`}
             >
               {plan.popular && (
                 <div className="absolute top-0 right-0">
-                  <Badge className="rounded-none rounded-bl-lg bg-[#FF6B35] text-white hover:bg-[#FF6B35]">
+                  <Badge className="rounded-none rounded-bl-lg bg-[#F5DEB3] text-black hover:bg-[#F5DEB3] font-semibold">
                     MOST POPULAR
                   </Badge>
                 </div>
               )}
-              <CardHeader className="text-center pb-2">
-                <h3 className="text-sm font-bold tracking-wide text-muted-foreground">
+              <CardHeader className="text-center pb-2 pt-8">
+                <h3 className="text-sm font-bold tracking-wide text-muted-foreground uppercase">
                   {plan.name}
                 </h3>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">
+                <div className="mt-6">
+                  <span className="text-5xl font-extrabold text-foreground">
                     {plan.price}
                   </span>
-                  <span className="text-muted-foreground">{plan.period}</span>
+                  <span className="text-muted-foreground ml-2">{plan.period}</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-sm font-medium text-[#F5DEB3] mt-2">
                   {plan.successFee}
                 </p>
               </CardHeader>
-              <CardContent className="pt-4">
-                <p className="text-center text-sm text-muted-foreground mb-6 min-h-[48px]">
+              <CardContent className="pt-6 px-6 pb-8">
+                <p className="text-center text-muted-foreground mb-8 min-h-[48px] leading-relaxed">
                   {plan.description}
                 </p>
 
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-[#FF6B35] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-foreground">{feature}</span>
+                    <li key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-[#F5DEB3] flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-foreground leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -125,10 +128,10 @@ const PricingSection = () => {
                 <Button
                   asChild
                   variant={plan.ctaVariant}
-                  className={`w-full ${
+                  className={`w-full font-semibold transition-all duration-300 ${
                     plan.popular
-                      ? "bg-[#FF6B35] hover:bg-[#E85A2A] text-white"
-                      : ""
+                      ? "bg-white hover:bg-gray-100 text-black shadow-md hover:shadow-lg rounded-full"
+                      : "rounded-full border-border hover:bg-muted"
                   }`}
                 >
                   <Link to="/contact">{plan.cta}</Link>
