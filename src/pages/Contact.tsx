@@ -11,9 +11,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { ChevronDown, X, CheckCircle2, ArrowLeft } from "lucide-react";
+import { ChevronDown, X, CheckCircle2, ArrowLeft, Loader2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { createContactRequest } from "@/lib/supabase";
 
 const REGION_GROUPS = [
   {
@@ -69,6 +70,7 @@ const Contact = () => {
   const partner = location.state?.partner as Partner | undefined;
   
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -80,31 +82,35 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Importar la función de Supabase
-    const { createContactRequest } = await import("@/lib/supabase");
+    setIsLoading(true);
     
-    // Preparar los datos
-    const contactData = {
-      first_name: formData.firstName,
-      last_name: formData.lastName,
-      company_name: formData.companyName,
-      email: formData.email,
-      target_region: formData.targetRegions.join(", "),
-      partner_id: partner?.id,
-      partner_name: partner?.name,
-    };
-    
-    // Enviar a Supabase
-    const result = await createContactRequest(contactData);
-    
-    if (result.success) {
-      console.log("Contact request saved successfully:", result.data);
-      setSubmitted(true);
-    } else {
-      console.error("Error saving contact request:", result.error);
-      // Aquí podrías mostrar un mensaje de error al usuario
-      // Por ahora, procederemos con la confirmación de todas formas
-      alert(`Error: ${result.error || 'Could not save request. Please try again.'}`);
+    try {
+      // Preparar los datos
+      const contactData = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        company_name: formData.companyName,
+        email: formData.email,
+        target_region: formData.targetRegions.join(", "),
+        partner_id: partner?.id,
+        partner_name: partner?.name,
+      };
+      
+      // Enviar a Supabase
+      const result = await createContactRequest(contactData);
+      
+      if (result.success) {
+        console.log("Contact request saved successfully:", result.data);
+        setSubmitted(true);
+      } else {
+        console.error("Error saving contact request:", result.error);
+        alert(`Error: ${result.error || 'Could not save request. Please try again.'}`);
+      }
+    } catch (error) {
+      console.error("Unexpected error:", error);
+      alert('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -415,8 +421,16 @@ const Contact = () => {
                     type="submit"
                     size="lg"
                     className="w-full bg-[#874FFF] hover:bg-[#7043DD]"
+                    disabled={isLoading}
                   >
-                    Submit Request
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      "Submit Request"
+                    )}
                   </Button>
 
                   <p className="text-xs text-center text-muted-foreground">
