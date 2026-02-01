@@ -34,12 +34,12 @@ const Navbar = () => {
             >
               Become a partner
             </Link>
-            <a
-              href="mailto:contact@gtmate.com"
+            <Link
+              to="/contact"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Contact
-            </a>
+            </Link>
             <Button 
               asChild 
               size="sm"
@@ -71,12 +71,13 @@ const Navbar = () => {
               >
                 Become a partner
               </Link>
-              <a
-                href="mailto:contact@gtmate.com"
+              <Link
+                to="/contact"
                 className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
-              </a>
+              </Link>
               <Button 
                 asChild 
                 size="sm" 
