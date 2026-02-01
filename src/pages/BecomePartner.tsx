@@ -11,8 +11,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { CheckCircle2, ArrowLeft, ChevronDown, X } from "lucide-react";
+import { CheckCircle2, ArrowLeft, ChevronDown, X, Loader2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { createPartnerApplication } from "@/lib/supabase";
 
 const REGION_GROUPS = [
   {
@@ -55,6 +56,7 @@ const ALL_REGIONS = REGION_GROUPS.flatMap((group) => group.regions);
 const BecomePartner = () => {
   const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -67,28 +69,34 @@ const BecomePartner = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Import and save to Supabase
-    const { createPartnerApplication } = await import("@/lib/supabase");
+    setIsLoading(true);
     
-    const applicationData = {
-      first_name: formData.firstName,
-      last_name: formData.lastName,
-      email: formData.email,
-      phone: formData.phone || null,
-      linkedin: formData.linkedin,
-      country: formData.countries.join(", "),
-      experience: null,
-      industry: null,
-    };
-    
-    const result = await createPartnerApplication(applicationData);
-    
-    if (result.success) {
-      console.log("Partner application saved successfully:", result.data);
-      setSubmitted(true);
-    } else {
-      console.error("Error saving partner application:", result.error);
-      alert(`Error: ${result.error || 'Could not save application. Please try again.'}`);
+    try {
+      const applicationData = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone: formData.phone || null,
+        linkedin: formData.linkedin,
+        country: formData.countries.join(", "),
+        experience: null,
+        industry: null,
+      };
+      
+      const result = await createPartnerApplication(applicationData);
+      
+      if (result.success) {
+        console.log("Partner application saved successfully:", result.data);
+        setSubmitted(true);
+      } else {
+        console.error("Error saving partner application:", result.error);
+        alert(`Error: ${result.error || 'Could not save application. Please try again.'}`);
+      }
+    } catch (error) {
+      console.error("Unexpected error:", error);
+      alert('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -353,8 +361,16 @@ const BecomePartner = () => {
                 type="submit"
                 size="lg"
                 className="w-full bg-[#874FFF] hover:bg-[#7043DD]"
+                disabled={isLoading}
               >
-                Submit Application
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  "Submit Application"
+                )}
               </Button>
 
               <p className="text-xs text-center text-muted-foreground">
