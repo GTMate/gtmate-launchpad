@@ -98,7 +98,7 @@ const PricingSection = () => {
                 </div>
               )}
               <CardHeader className="text-center pb-2 pt-8">
-                <h3 className="text-sm font-bold tracking-wide text-muted-foreground uppercase">
+                <h3 className="text-xl sm:text-2xl font-bold tracking-wide text-muted-foreground uppercase">
                   {plan.name}
                 </h3>
                 <div className="mt-6">

@@ -15,7 +15,7 @@ const HeroSection = () => {
   const typewriterText = useTypewriter(ROTATING_PHRASES, 80, 40, 2000);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden pb-20 sm:pb-24">
+    <section className="relative w-full min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden pb-16 sm:pb-20">
       {/* Dark background with city image effect */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
@@ -26,9 +26,9 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/50 to-background" />
       
-      <div className="relative container mx-auto px-4 py-20 md:py-32 lg:py-40 w-full">
+      <div className="relative container mx-auto px-4 py-12 md:py-16 lg:py-20 w-full">
         <div className="mx-auto max-w-5xl">
-          <h1 className="mb-4 md:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-foreground tracking-tight">
+          <h1 className="mb-3 md:mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-foreground tracking-tight">
             Open your next market with a{" "}
             <span className="text-[#F5DEB3]">
               trusted local seller
@@ -39,7 +39,7 @@ const HeroSection = () => {
               <span className="animate-pulse text-[#F5DEB3]">|</span>
             </span>
           </h1>
-          <p className="mb-8 md:mb-10 text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl leading-relaxed text-muted-foreground">
+          <p className="mb-6 md:mb-7 text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl leading-relaxed text-muted-foreground">
             We match your company with experienced local sellers who already have
             the relationships, context and skills to start selling in{" "}
             <span className="text-foreground font-semibold">weeks, not years.</span>
@@ -66,7 +66,7 @@ const HeroSection = () => {
       </div>
 
       {/* MetricsBar positioned at bottom */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0">
+      <div className="absolute bottom-2 sm:bottom-3 md:bottom-4 left-0 right-0">
         <MetricsBar />
       </div>
     </section>

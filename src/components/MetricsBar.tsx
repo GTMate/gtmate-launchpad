@@ -15,7 +15,7 @@ const MetricsBar = () => {
   ];
 
   return (
-    <section className="py-3 sm:py-4">
+    <section className="py-2 sm:py-3">
       <div className="container mx-auto px-4">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-16">
           {metrics.map((metric, index) => (
