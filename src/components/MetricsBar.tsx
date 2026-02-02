@@ -15,9 +15,9 @@ const MetricsBar = () => {
   ];
 
   return (
-    <section className="py-1.5 sm:py-2 md:py-3">
+    <section className="py-1 sm:py-2 md:py-3">
       <div className="container mx-auto px-4">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-16">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-5 sm:gap-8 md:gap-10 lg:gap-16">
           {metrics.map((metric, index) => (
             <div key={index} className="flex flex-col items-center gap-0.5 sm:gap-1">
               <span className="text-2xl sm:text-3xl font-bold text-[#F5DEB3]">

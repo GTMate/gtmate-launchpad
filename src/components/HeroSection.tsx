@@ -15,7 +15,7 @@ const HeroSection = () => {
   const typewriterText = useTypewriter(ROTATING_PHRASES, 80, 40, 2000);
 
   return (
-    <section className="relative w-full min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden pb-12 sm:pb-16 md:pb-20">
+    <section className="relative w-full min-h-[75vh] md:min-h-[90vh] flex items-center overflow-hidden pb-8 sm:pb-12 md:pb-20">
       {/* Dark background with city image effect */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
@@ -26,20 +26,20 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/50 to-background" />
       
-      <div className="relative container mx-auto px-4 py-8 md:py-16 lg:py-20 w-full">
+      <div className="relative container mx-auto px-4 py-4 md:py-16 lg:py-20 w-full">
         <div className="mx-auto max-w-5xl">
-          <h1 className="mb-2 md:mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-foreground tracking-tight">
+          <h1 className="mb-3 md:mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-foreground tracking-tight">
             Open your next market with a{" "}
             <span className="text-[#F5DEB3]">
               trusted local seller
             </span>{" "}
             —{" "}
-            <span className="block sm:inline-block min-w-[280px] sm:min-w-[350px] md:min-w-[450px] text-muted-foreground font-semibold mt-2 sm:mt-0">
+            <span className="block sm:inline-block min-w-[280px] sm:min-w-[350px] md:min-w-[450px] text-muted-foreground font-semibold mt-1 sm:mt-0">
               {typewriterText}
               <span className="animate-pulse text-[#F5DEB3]">|</span>
             </span>
           </h1>
-          <p className="mb-4 md:mb-6 text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl leading-relaxed text-muted-foreground">
+          <p className="mb-4 md:mb-6 text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl leading-snug sm:leading-relaxed text-muted-foreground">
             We match your company with experienced local sellers who already have
             the relationships, context and skills to start selling in{" "}
             <span className="text-foreground font-semibold">weeks, not years.</span>
@@ -56,7 +56,7 @@ const HeroSection = () => {
       </div>
 
       {/* MetricsBar positioned at bottom */}
-      <div className="absolute bottom-1 sm:bottom-2 md:bottom-4 left-0 right-0">
+      <div className="absolute bottom-0 sm:bottom-2 md:bottom-4 left-0 right-0">
         <MetricsBar />
       </div>
     </section>
