@@ -87,34 +87,34 @@ const GtmPartnersSection = () => {
   return (
     <section
       id="gtm-partners"
-      className="border-t border-border bg-secondary/20 py-20"
+      className="border-t border-border bg-secondary/20 py-16 sm:py-20 md:py-24"
     >
       <div className="container mx-auto px-4">
-        <div className="mb-8 text-center">
-          <p className="text-sm font-medium text-[#F5DEB3] uppercase tracking-wide mb-2">
+        <div className="mb-8 sm:mb-10 md:mb-12 text-center">
+          <p className="text-xs sm:text-sm font-medium text-[#F5DEB3] uppercase tracking-wide mb-2">
             Our Network
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
+          <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             Vetted sellers across LATAM & Europe
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-muted-foreground px-2">
             Senior sales leaders with proven track records at top companies. Every partner is carefully vetted for experience, network, and results.
           </p>
         </div>
 
         {/* Stats bar */}
-        <div className="flex flex-wrap justify-center gap-8 mb-10 py-6 border-y border-border">
-          <div className="flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-[#F5DEB3]" />
-            <span className="text-sm text-muted-foreground">Avg. <span className="font-semibold text-foreground">10+ years</span> sales experience</span>
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 py-4 sm:py-6 border-y border-border">
+          <div className="flex items-center justify-center gap-2">
+            <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-[#F5DEB3] flex-shrink-0" />
+            <span className="text-xs sm:text-sm text-muted-foreground text-center">Avg. <span className="font-semibold text-foreground">10+ years</span> sales experience</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Building2 className="h-5 w-5 text-[#F5DEB3]" />
-            <span className="text-sm text-muted-foreground">Ex-leaders from <span className="font-semibold text-foreground">top tech companies</span></span>
+          <div className="flex items-center justify-center gap-2">
+            <Building2 className="h-4 w-4 sm:h-5 sm:w-5 text-[#F5DEB3] flex-shrink-0" />
+            <span className="text-xs sm:text-sm text-muted-foreground text-center">Ex-leaders from <span className="font-semibold text-foreground">top tech companies</span></span>
           </div>
-          <div className="flex items-center gap-2">
-            <Globe className="h-5 w-5 text-[#F5DEB3]" />
-            <span className="text-sm text-muted-foreground"><span className="font-semibold text-foreground">15+ markets</span> covered</span>
+          <div className="flex items-center justify-center gap-2">
+            <Globe className="h-4 w-4 sm:h-5 sm:w-5 text-[#F5DEB3] flex-shrink-0" />
+            <span className="text-xs sm:text-sm text-muted-foreground text-center"><span className="font-semibold text-foreground">15+ markets</span> covered</span>
           </div>
         </div>
 
@@ -194,13 +194,13 @@ const GtmPartnersSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 text-center">
-          <p className="text-muted-foreground mb-4">
+        <div className="mt-8 sm:mt-10 text-center">
+          <p className="text-sm sm:text-base text-muted-foreground mb-4">
             Ready to meet your ideal seller?
           </p>
           <Button
             size="lg"
-            className="group bg-white hover:bg-gray-100 text-black"
+            className="group bg-white hover:bg-gray-100 text-black w-full sm:w-auto"
             onClick={() => navigate('/contact')}
           >
             Get matched now

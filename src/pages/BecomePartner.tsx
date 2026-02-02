@@ -210,7 +210,7 @@ const BecomePartner = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-16">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-6 sm:py-8">
           <div className="max-w-2xl mx-auto">
             {/* Header */}
             <div className="mb-8">

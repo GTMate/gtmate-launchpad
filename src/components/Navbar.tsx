@@ -34,13 +34,13 @@ const Navbar = () => {
         : "border-transparent bg-transparent"
     }`}>
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-foreground tracking-tight hover:opacity-80 transition-opacity">
+        <div className="flex h-14 sm:h-16 items-center justify-between">
+          <Link to="/" className="text-xl sm:text-2xl font-bold text-foreground tracking-tight hover:opacity-80 transition-opacity">
             GTMate
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-6 lg:gap-8 md:flex">
             <Link
               to="/become-a-partner"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -56,7 +56,7 @@ const Navbar = () => {
             <Button 
               asChild 
               size="sm"
-              className="bg-white hover:bg-gray-100 text-black shadow-md hover:shadow-lg transition-all duration-300 rounded-full font-semibold px-6"
+              className="bg-white hover:bg-gray-100 text-black shadow-md hover:shadow-lg transition-all duration-300 rounded-full font-semibold px-4 sm:px-6"
             >
               <Link to="/contact">Start Now</Link>
             </Button>
@@ -64,29 +64,29 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden p-2 -mr-2"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
             aria-expanded={mobileMenuOpen}
           >
-            <Menu className="h-6 w-6" />
+            <Menu className="h-6 w-6 text-foreground" />
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="border-t border-border py-4 md:hidden">
+          <div className="border-t border-border py-4 md:hidden bg-background/95 backdrop-blur-md">
             <div className="flex flex-col gap-4">
               <Link
                 to="/become-a-partner"
-                className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground px-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Become a partner
               </Link>
               <Link
                 to="/contact"
-                className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground px-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact

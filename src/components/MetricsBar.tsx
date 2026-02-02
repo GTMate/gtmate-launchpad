@@ -15,15 +15,15 @@ const MetricsBar = () => {
   ];
 
   return (
-    <section className="py-4">
+    <section className="py-3 sm:py-4">
       <div className="container mx-auto px-4">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-10 md:gap-16">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-16">
           {metrics.map((metric, index) => (
-            <div key={index} className="flex flex-col items-center gap-1">
-              <span className="text-3xl font-bold text-[#F5DEB3]">
+            <div key={index} className="flex flex-col items-center gap-0.5 sm:gap-1">
+              <span className="text-2xl sm:text-3xl font-bold text-[#F5DEB3]">
                 {metric.number}
               </span>
-              <span className="text-sm text-muted-foreground font-medium">{metric.label}</span>
+              <span className="text-xs sm:text-sm text-muted-foreground font-medium text-center">{metric.label}</span>
             </div>
           ))}
         </div>

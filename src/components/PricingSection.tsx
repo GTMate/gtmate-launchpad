@@ -66,16 +66,16 @@ const PRICING_PLANS = [
 
 const PricingSection = () => {
   return (
-    <section className="border-t border-border bg-background py-24">
+    <section className="border-t border-border bg-background py-16 sm:py-20 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-[#F5DEB3] uppercase tracking-wide mb-3">
+        <div className="text-center mb-12 sm:mb-14 md:mb-16">
+          <p className="text-xs sm:text-sm font-semibold text-[#F5DEB3] uppercase tracking-wide mb-2 sm:mb-3">
             Pricing Plans
           </p>
-          <h2 className="text-4xl font-extrabold text-foreground md:text-5xl tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight mb-3 sm:mb-4">
             Launch your local sales with confidence
           </h2>
-          <p className="text-xl text-muted-foreground mt-4 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Transparent pricing that scales with your success
           </p>
         </div>

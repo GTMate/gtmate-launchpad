@@ -30,21 +30,21 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section id="how-it-works" className="border-t border-border bg-secondary/20 py-20">
+    <section id="how-it-works" className="border-t border-border bg-secondary/20 py-16 sm:py-20 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="text-sm font-medium text-[#F5DEB3] uppercase tracking-wide mb-2">
+        <div className="text-center mb-10 sm:mb-12">
+          <p className="text-xs sm:text-sm font-medium text-[#F5DEB3] uppercase tracking-wide mb-2">
             Simple Process
           </p>
-          <h2 className="text-3xl font-bold text-foreground md:text-4xl mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             From signup to selling in 3 steps
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
             No lengthy negotiations. No recruitment headaches. Just a straightforward path to your next market.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
