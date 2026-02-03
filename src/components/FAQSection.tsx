@@ -23,11 +23,6 @@ const FAQSection = () => {
         "Typically 7-14 days from application to first intro call with your matched local seller. Most partners start outreach within their first week.",
     },
     {
-      question: "What commission structure do local sellers work on?",
-      answer:
-        "It varies by deal size and market, but typically 10-20% of first-year contract value. We help you structure a fair deal that motivates your seller while protecting your margins.",
-    },
-    {
       question: "Do I need to provide leads, or do they generate their own?",
       answer:
         "Your sellers generates their own leads using their local network and market knowledge. You provide sales materials, pricing, and product training. They handle prospecting, demos, and closing.",
