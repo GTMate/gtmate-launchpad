@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useTypewriter } from "@/hooks/use-typewriter";
 import MetricsBar from "@/components/MetricsBar";
+import { useState, useEffect } from "react";
 
 const ROTATING_PHRASES = [
   "without building a local team.",
@@ -11,20 +12,38 @@ const ROTATING_PHRASES = [
   "without the risk of bad hires.",
 ] as const;
 
+const BACKGROUND_IMAGES = [
+  "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920&q=80", // City skyline
+  "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1920&q=80", // Madrid - Cuatro Torres Business Area
+] as const;
+
 const HeroSection = () => {
   const typewriterText = useTypewriter(ROTATING_PHRASES, 80, 40, 2000);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % BACKGROUND_IMAGES.length);
+    }, 8000); // Cambiar cada 8 segundos
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative w-full min-h-[75vh] md:min-h-[90vh] flex items-center overflow-hidden pb-8 sm:pb-12 md:pb-20">
-      {/* Dark background with city image effect */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center" 
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920&q=80')",
-          filter: "brightness(0.3)"
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/50 to-background" />
+      {/* Rotating background images with smooth transition */}
+      {BACKGROUND_IMAGES.map((image, index) => (
+        <div
+          key={image}
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url('${image}')`,
+            filter: "brightness(0.45)",
+            opacity: currentImageIndex === index ? 1 : 0,
+          }}
+        />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/40 to-background" />
       
       <div className="relative container mx-auto px-4 py-4 md:py-16 lg:py-20 w-full">
         <div className="mx-auto max-w-5xl">
