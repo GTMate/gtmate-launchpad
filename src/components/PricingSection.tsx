@@ -21,11 +21,7 @@ const PRICING_PLANS = [
     cta: "Talk to Sales",
     ctaVariant: "outline" as const,
     popular: false,
-    addOns: [
-      "SDR Seat: × $3,000/mo",
-      "GTM Hiring Support: $3,000–$5,000 per hire",
-      "Sales Enablement Pack: +$1,000/mo",
-    ],
+    addOns: null,
   },
   {
     name: "SCALE",
@@ -111,12 +107,12 @@ const PricingSection = () => {
                   {plan.successFee}
                 </p>
               </CardHeader>
-              <CardContent className="pt-6 px-6 pb-8">
-                <p className="text-center text-muted-foreground mb-8 min-h-[48px] leading-relaxed">
+              <CardContent className="pt-3 px-6 pb-5">
+                <p className="text-center text-muted-foreground mb-6 min-h-[48px] leading-relaxed">
                   {plan.description}
                 </p>
 
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-4 mb-6">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-[#F5DEB3] flex-shrink-0 mt-0.5" />
