@@ -75,18 +75,18 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="border-t border-border py-4 md:hidden bg-background/95 backdrop-blur-md">
-            <div className="flex flex-col gap-4">
+          <div className="absolute top-full left-4 right-4 mt-2 md:hidden bg-background/80 backdrop-blur-lg rounded-2xl border border-[#F5DEB3]/20 shadow-[0_8px_32px_rgba(245,222,179,0.15)]">
+            <div className="flex flex-col gap-4 p-4">
               <Link
                 to="/become-a-partner"
-                className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground px-2"
+                className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground px-2 py-1 rounded-lg hover:bg-white/5"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Become a partner
               </Link>
               <Link
                 to="/contact"
-                className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground px-2"
+                className="text-left text-sm text-muted-foreground transition-colors hover:text-foreground px-2 py-1 rounded-lg hover:bg-white/5"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
@@ -94,7 +94,7 @@ const Navbar = () => {
               <Button 
                 asChild 
                 size="sm" 
-                className="w-full bg-white hover:bg-gray-100 text-black rounded-full font-semibold"
+                className="w-full bg-white hover:bg-gray-100 text-black rounded-full font-semibold shadow-md hover:shadow-[0_0_20px_rgba(245,222,179,0.4)] transition-all duration-300"
               >
                 <Link to="/contact">Start Now</Link>
               </Button>

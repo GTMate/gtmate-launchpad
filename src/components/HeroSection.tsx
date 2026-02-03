@@ -45,15 +45,15 @@ const HeroSection = () => {
       ))}
       <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/40 to-background" />
       
-      <div className="relative container mx-auto px-4 py-4 md:py-16 lg:py-20 w-full">
+      <div className="relative container mx-auto px-4 pt-2 pb-4 md:py-16 lg:py-20 w-full">
         <div className="mx-auto max-w-5xl">
-          <h1 className="mb-3 md:mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-foreground tracking-tight">
+          <h1 className="mb-3 md:mb-4 text-[2.5rem] leading-tight sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-foreground tracking-tight">
             Open your next market with a{" "}
             <span className="text-[#F5DEB3]">
               trusted local seller
             </span>
             <br />
-            <span className="block text-muted-foreground font-semibold min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] lg:min-h-[4rem] mt-1">
+            <span className="block text-muted-foreground font-semibold min-h-[5rem] sm:min-h-[3rem] md:min-h-[3.5rem] lg:min-h-[4rem] mt-1 text-[2.25rem] sm:text-[inherit]">
               {typewriterText}
               <span className="animate-pulse text-[#F5DEB3]">|</span>
             </span>
