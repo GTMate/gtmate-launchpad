@@ -200,7 +200,7 @@ const GtmPartnersSection = () => {
           </p>
           <Button
             size="lg"
-            className="group bg-white hover:bg-gray-100 text-black w-full sm:w-auto"
+            className="group bg-white hover:bg-gray-100 text-black w-full sm:w-auto shadow-md hover:shadow-[0_0_30px_rgba(245,222,179,0.6)] transition-all duration-300 border-2 border-transparent hover:border-[#F5DEB3]/50"
             onClick={() => navigate('/contact')}
           >
             Get matched now

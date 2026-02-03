@@ -83,7 +83,7 @@ const PricingSection = () => {
               className={`relative overflow-hidden transition-all duration-300 hover:shadow-xl bg-card ${
                 plan.popular
                   ? "border-[#F5DEB3] border-2 shadow-lg scale-105"
-                  : "border-border hover:border-[#F5DEB3]/30"
+                  : "border-border hover:border-[#F5DEB3]/50 hover:shadow-[0_0_20px_rgba(245,222,179,0.15)]"
               }`}
             >
               {plan.popular && (

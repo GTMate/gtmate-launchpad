@@ -48,7 +48,7 @@ const HeroSection = () => {
           <Button 
             asChild 
             size="lg" 
-            className="w-full sm:w-auto bg-white hover:bg-gray-100 text-black shadow-lg hover:shadow-xl transition-all duration-300 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-lg font-semibold"
+            className="w-full sm:w-auto bg-white hover:bg-gray-100 text-black shadow-lg hover:shadow-[0_0_30px_rgba(245,222,179,0.6)] transition-all duration-300 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 rounded-lg font-semibold border-2 border-transparent hover:border-[#F5DEB3]/50"
           >
             <Link to="/contact">Talk to us →</Link>
           </Button>

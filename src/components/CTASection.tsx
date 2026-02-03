@@ -19,7 +19,7 @@ const CTASection = () => {
           <Button 
             asChild 
             size="lg" 
-            className="group bg-white hover:bg-gray-100 text-black shadow-lg hover:shadow-xl transition-all duration-300 text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 rounded-full font-semibold w-full sm:w-auto"
+            className="group bg-white hover:bg-gray-100 text-black shadow-lg hover:shadow-[0_0_30px_rgba(245,222,179,0.6)] transition-all duration-300 text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 rounded-full font-semibold w-full sm:w-auto border-2 border-transparent hover:border-[#F5DEB3]/50"
           >
             <Link to="/contact">
               Start Now

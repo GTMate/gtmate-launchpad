@@ -43,20 +43,20 @@ const Navbar = () => {
           <div className="hidden items-center gap-6 lg:gap-8 md:flex">
             <Link
               to="/become-a-partner"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-all hover:text-foreground relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#F5DEB3] after:transition-all after:duration-300 hover:after:w-full"
             >
               Become a partner
             </Link>
             <Link
               to="/contact"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-all hover:text-foreground relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#F5DEB3] after:transition-all after:duration-300 hover:after:w-full"
             >
               Contact
             </Link>
             <Button 
               asChild 
               size="sm"
-              className="bg-white hover:bg-gray-100 text-black shadow-md hover:shadow-lg transition-all duration-300 rounded-full font-semibold px-4 sm:px-6"
+              className="bg-white hover:bg-gray-100 text-black shadow-md hover:shadow-[#F5DEB3]/50 hover:shadow-lg transition-all duration-300 rounded-full font-semibold px-4 sm:px-6 border-2 border-transparent hover:border-[#F5DEB3]/40"
             >
               <Link to="/contact">Start Now</Link>
             </Button>
