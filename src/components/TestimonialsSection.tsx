@@ -11,7 +11,7 @@ const TestimonialsSection = () => {
     },
     {
       quote:
-        "Instead of hiring 3 people and waiting 6 months, we had someone selling week one. The commission model means we only pay for results.",
+        "Instead of hiring 3 people and waiting 6 months, we had someone selling week one. GTMate delivered exactly what they promised—speed to market and immediate results.",
       author: "Marcus Silva",
       role: "Co-founder, B2B Fintech",
       company: "€2M+ in new market ARR",
