@@ -37,12 +37,17 @@ const FAQSection = () => {
   return (
     <section className="border-t border-border bg-secondary/20 py-20">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="mb-4 text-center text-3xl font-bold text-foreground md:text-4xl">
-          Frequently asked questions
-        </h2>
-        <p className="mb-12 text-center text-muted-foreground">
-          Everything you need to know about working with local sellers
-        </p>
+        <div className="text-center mb-12">
+          <p className="text-xs sm:text-sm font-semibold text-[#F5DEB3] uppercase tracking-wide mb-2 sm:mb-3">
+            FAQ
+          </p>
+          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
+            Frequently asked questions
+          </h2>
+          <p className="text-muted-foreground">
+            Everything you need to know about working with local sellers
+          </p>
+        </div>
 
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
