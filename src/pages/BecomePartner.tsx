@@ -211,7 +211,7 @@ const BecomePartner = () => {
       <Navbar />
       <div className="pt-16">
         <div className="container mx-auto px-4 py-6 sm:py-8">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             {/* Header */}
             <div className="mb-8">
               <Button
@@ -223,42 +223,45 @@ const BecomePartner = () => {
                 Back
               </Button>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Become a GTM Partner
+                Become a <span className="text-[#F5DEB3]">GTM Partner</span>
               </h1>
               <p className="text-lg text-muted-foreground">
                 Join our network of experienced sales professionals and help companies expand into new markets.
               </p>
             </div>
 
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid gap-8 lg:grid-cols-1 max-w-2xl">
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Fields */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name *</Label>
+                  <Label htmlFor="firstName">First Name <span className="text-[#F5DEB3]">*</span></Label>
                   <Input
                     id="firstName"
                     required
                     value={formData.firstName}
                     onChange={(e) => handleChange("firstName", e.target.value)}
                     placeholder="John"
+                    className="focus:border-[#F5DEB3]/50"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name *</Label>
+                  <Label htmlFor="lastName">Last Name <span className="text-[#F5DEB3]">*</span></Label>
                   <Input
                     id="lastName"
                     required
                     value={formData.lastName}
                     onChange={(e) => handleChange("lastName", e.target.value)}
                     placeholder="Doe"
+                    className="focus:border-[#F5DEB3]/50"
                   />
                 </div>
               </div>
 
               {/* Email */}
               <div className="space-y-2">
-                <Label htmlFor="email">Email *</Label>
+                <Label htmlFor="email">Email <span className="text-[#F5DEB3]">*</span></Label>
                 <Input
                   id="email"
                   type="email"
@@ -266,6 +269,7 @@ const BecomePartner = () => {
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                   placeholder="john@example.com"
+                  className="focus:border-[#F5DEB3]/50"
                 />
               </div>
 
@@ -278,12 +282,13 @@ const BecomePartner = () => {
                   value={formData.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
                   placeholder="+1 234 567 8900"
+                  className="focus:border-[#F5DEB3]/50"
                 />
               </div>
 
               {/* LinkedIn */}
               <div className="space-y-2">
-                <Label htmlFor="linkedin">LinkedIn Profile *</Label>
+                <Label htmlFor="linkedin">LinkedIn Profile <span className="text-[#F5DEB3]">*</span></Label>
                 <Input
                   id="linkedin"
                   type="url"
@@ -291,12 +296,13 @@ const BecomePartner = () => {
                   value={formData.linkedin}
                   onChange={(e) => handleChange("linkedin", e.target.value)}
                   placeholder="https://linkedin.com/in/yourprofile"
+                  className="focus:border-[#F5DEB3]/50"
                 />
               </div>
 
               {/* Country/Region - Multi Select */}
               <div className="space-y-2">
-                <Label>Country/Region where you operate *</Label>
+                <Label>Country/Region where you operate <span className="text-[#F5DEB3]">*</span></Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
@@ -360,7 +366,7 @@ const BecomePartner = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-white hover:bg-gray-100 text-black"
+                className="w-full bg-white hover:bg-gray-100 text-black border-2 border-transparent hover:border-[#F5DEB3]/30 transition-all duration-300"
                 disabled={isLoading}
               >
                 {isLoading ? (
@@ -374,9 +380,10 @@ const BecomePartner = () => {
               </Button>
 
               <p className="text-xs text-center text-muted-foreground">
-                By submitting this form, you agree to our Terms of Service and Privacy Policy
+                By submitting this form, you agree to our <span className="text-[#F5DEB3]/80">Terms of Service</span> and <span className="text-[#F5DEB3]/80">Privacy Policy</span>
               </p>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>

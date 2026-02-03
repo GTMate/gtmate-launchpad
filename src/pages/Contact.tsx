@@ -291,7 +291,11 @@ const Contact = () => {
                 Back
               </Button>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                {partner ? "Request Introduction" : "Start your expansion"}
+                {partner ? "Request Introduction" : (
+                  <>
+                    Start your <span className="text-[#F5DEB3]">expansion</span>
+                  </>
+                )}
               </h1>
               <p className="text-lg text-muted-foreground">
                 {partner 
@@ -308,42 +312,45 @@ const Contact = () => {
                   {/* Name Fields */}
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="firstName">First Name *</Label>
+                      <Label htmlFor="firstName">First Name <span className="text-[#F5DEB3]">*</span></Label>
                       <Input
                         id="firstName"
                         required
                         value={formData.firstName}
                         onChange={(e) => handleChange("firstName", e.target.value)}
                         placeholder="John"
+                        className="focus:border-[#F5DEB3]/50"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="lastName">Last Name *</Label>
+                      <Label htmlFor="lastName">Last Name <span className="text-[#F5DEB3]">*</span></Label>
                       <Input
                         id="lastName"
                         required
                         value={formData.lastName}
                         onChange={(e) => handleChange("lastName", e.target.value)}
                         placeholder="Doe"
+                        className="focus:border-[#F5DEB3]/50"
                       />
                     </div>
                   </div>
 
                   {/* Company */}
                   <div className="space-y-2">
-                    <Label htmlFor="companyName">Company Name *</Label>
+                    <Label htmlFor="companyName">Company Name <span className="text-[#F5DEB3]">*</span></Label>
                     <Input
                       id="companyName"
                       required
                       value={formData.companyName}
                       onChange={(e) => handleChange("companyName", e.target.value)}
                       placeholder="Acme Inc."
+                      className="focus:border-[#F5DEB3]/50"
                     />
                   </div>
 
                   {/* Email */}
                   <div className="space-y-2">
-                    <Label htmlFor="email">Work Email *</Label>
+                    <Label htmlFor="email">Work Email <span className="text-[#F5DEB3]">*</span></Label>
                     <Input
                       id="email"
                       type="email"
@@ -351,12 +358,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={(e) => handleChange("email", e.target.value)}
                       placeholder="john@company.com"
+                      className="focus:border-[#F5DEB3]/50"
                     />
                   </div>
 
                   {/* Target Regions - Multi Select */}
                   <div className="space-y-2">
-                    <Label>Target Regions *</Label>
+                    <Label>Target Regions <span className="text-[#F5DEB3]">*</span></Label>
                     <Popover>
                       <PopoverTrigger asChild>
                         <Button
@@ -420,7 +428,7 @@ const Contact = () => {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-white hover:bg-gray-100 text-black"
+                    className="w-full bg-white hover:bg-gray-100 text-black border-2 border-transparent hover:border-[#F5DEB3]/30 transition-all duration-300"
                     disabled={isLoading}
                   >
                     {isLoading ? (
@@ -434,7 +442,7 @@ const Contact = () => {
                   </Button>
 
                   <p className="text-xs text-center text-muted-foreground">
-                    By submitting this form, you agree to our Terms of Service and Privacy Policy
+                    By submitting this form, you agree to our <span className="text-[#F5DEB3]/80">Terms of Service</span> and <span className="text-[#F5DEB3]/80">Privacy Policy</span>
                   </p>
                 </form>
               </div>
