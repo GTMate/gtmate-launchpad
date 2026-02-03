@@ -51,9 +51,9 @@ const HeroSection = () => {
             Open your next market with a{" "}
             <span className="text-[#F5DEB3]">
               trusted local seller
-            </span>{" "}
-            —{" "}
-            <span className="block sm:inline-block min-w-[280px] sm:min-w-[350px] md:min-w-[450px] text-muted-foreground font-semibold mt-1 sm:mt-0">
+            </span>
+            <br />
+            <span className="block text-muted-foreground font-semibold min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] lg:min-h-[4rem] mt-1">
               {typewriterText}
               <span className="animate-pulse text-[#F5DEB3]">|</span>
             </span>
