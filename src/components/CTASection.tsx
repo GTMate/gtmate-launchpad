@@ -13,8 +13,8 @@ const CTASection = () => {
               next market?
             </span>
           </h2>
-          <p className="mb-8 sm:mb-9 md:mb-10 text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Browse our vetted local sellers and find the right match to expand into new markets.
+          <p className="mb-8 sm:mb-9 md:mb-10 text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto">
+            Stop losing time and revenue to market entry delays. Let's connect you with the right local seller and unlock your next growth opportunity—starting today.
           </p>
           <Button 
             asChild 
@@ -26,20 +26,6 @@ const CTASection = () => {
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
-          <div className="mt-6 sm:mt-7 md:mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground">
-            <span className="flex items-center gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#F5DEB3]" />
-              No upfront fees
-            </span>
-            <span className="flex items-center gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#F5DEB3]" />
-              Commission-based
-            </span>
-            <span className="flex items-center gap-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#F5DEB3]" />
-              Start in 30 days
-            </span>
-          </div>
         </div>
       </div>
     </section>
