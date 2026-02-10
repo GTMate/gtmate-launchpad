@@ -35,7 +35,7 @@ const MainFooter = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid gap-8 md:grid-cols-4">
           <div>
-            <h3 className="mb-4 text-xl font-bold text-foreground">GTMate</h3>
+            <h3 className="mb-4 text-xl font-bold text-foreground">NEXOR</h3>
             <p className="text-sm text-muted-foreground">
               Connecting companies with local sellers for faster, smarter
               market expansion.
@@ -76,7 +76,7 @@ const MainFooter = () => {
 
         <div className="mt-12 border-t border-border pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} GTMate. All rights reserved.
+            © {currentYear} NEXOR. All rights reserved.
           </p>
         </div>
       </div>

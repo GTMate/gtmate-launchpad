@@ -204,7 +204,7 @@ const Apply = () => {
           <div className="lg:sticky lg:top-8 h-fit">
             <div className="bg-card border border-border rounded-lg p-8 space-y-6">
               <h2 className="text-2xl font-bold text-foreground">
-                Why choose GTMate
+                Why choose NEXOR
               </h2>
 
               <div className="space-y-4">
@@ -271,7 +271,7 @@ const Apply = () => {
 
               <div className="pt-4 border-t border-border">
                 <p className="text-sm text-muted-foreground italic">
-                  "GTMate allowed us to enter Brazil in 6 weeks with a partner
+                  "NEXOR allowed us to enter Brazil in 6 weeks with a partner
                   who already knew our ideal customers. We closed 3 deals in
                   the first quarter."
                 </p>

@@ -344,7 +344,6 @@ const Contact = () => {
                       value={formData.companyName}
                       onChange={(e) => handleChange("companyName", e.target.value)}
                       placeholder="Acme Inc."
-                      className="focus:border-[#F5DEB3]/50"
                     />
                   </div>
 
@@ -492,7 +491,7 @@ const Contact = () => {
                       <div className="pt-4 border-t border-border space-y-2">
                         <div className="flex items-center gap-2 text-sm">
                           <CheckCircle2 className="h-4 w-4 text-[#F5DEB3]" />
-                          <span>Carefully vetted by GTMate</span>
+                          <span>Carefully vetted by NEXOR</span>
                         </div>
                         <div className="flex items-center gap-2 text-sm">
                           <CheckCircle2 className="h-4 w-4 text-[#F5DEB3]" />

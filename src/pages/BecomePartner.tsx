@@ -223,7 +223,7 @@ const BecomePartner = () => {
                 Back
               </Button>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Become a <span className="text-[#F5DEB3]">GTM Partner</span>
+                Become a <span className="text-[#F5DEB3]">partner</span>
               </h1>
               <p className="text-lg text-muted-foreground">
                 Join our network of experienced sales professionals and help companies expand into new markets.

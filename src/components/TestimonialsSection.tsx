@@ -11,7 +11,7 @@ const TestimonialsSection = () => {
     },
     {
       quote:
-        "Instead of hiring 3 people and waiting 6 months, we had someone selling week one. GTMate delivered exactly what they promised—speed to market and immediate results.",
+        "Instead of hiring 3 people and waiting 6 months, we had someone selling week one. NEXOR delivered exactly what they promised—speed to market and immediate results.",
       author: "Marcus Silva",
       role: "Co-founder, B2B Fintech",
       company: "€2M+ in new market ARR",
@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
             What our clients say
           </h2>
           <p className="text-muted-foreground">
-            Real results from companies that expanded with GTMate
+            Real results from companies that expanded with NEXOR
           </p>
         </div>
 

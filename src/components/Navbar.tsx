@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex h-14 sm:h-16 items-center justify-between">
           <Link to="/" className="text-xl sm:text-2xl font-bold text-foreground tracking-tight hover:opacity-80 transition-opacity">
-            GTMate
+            NEXOR
           </Link>
 
           {/* Desktop Navigation */}
